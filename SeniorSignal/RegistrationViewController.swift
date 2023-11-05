@@ -70,12 +70,14 @@ class RegistrationViewController: UIViewController {
         newUser.username = username
         newUser.password = password
         newUser.email = email
+        // Assuming "name" is a custom field you've added to your Parse User class.
         newUser.name = name
         
         newUser.signup { result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(_):
+                    print("User account for \(username) created successfully.")  // This line logs the success.
                     // Successfully registered the new user, now login
                     self.loginUser(username: username, password: password)
                 case .failure(let error):
