@@ -101,11 +101,15 @@ class RegistrationViewController: UIViewController {
             return
         }
         
-        // If you are using a navigation controller within your storyboard, this will push the HomeViewController onto the navigation stack
-        navigationController?.pushViewController(homeVC, animated: true)
-        
-        // If you're not using a navigation controller and want to present it modally, comment out the above line and uncomment the line below.
-        // present(homeVC, animated: true, completion: nil)
+        // This will reset the navigation stack and make the HomeViewController the root view controller
+        if let navigationController = self.navigationController {
+            // Animation should be 'false' here to avoid strange popping behavior
+            navigationController.setViewControllers([homeVC], animated: false)
+        } else {
+            // If navigationController is nil, it likely means that your view controller is not within a navigation controller
+            // In this case, you may want to present it modally or investigate why it's not within a navigation controller
+            presentAlert(title: "Navigation Error", message: "Navigation controller not found.")
+        }
     }
     
     func presentAlert(title: String, message: String) {

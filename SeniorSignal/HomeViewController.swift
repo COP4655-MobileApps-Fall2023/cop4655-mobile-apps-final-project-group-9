@@ -32,8 +32,12 @@ class HomeViewController: UIViewController {
                     print("User logged out successfully")
                     if let sceneDelegate = self.view.window?.windowScene?.delegate as? SceneDelegate,
                        let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "ViewController") as? ViewController {
+                        // Create a navigation controller with the loginViewController at its root
+                        let navigationController = UINavigationController(rootViewController: loginViewController)
+                        
+                        // Transition to the new navigation controller
                         UIView.transition(with: sceneDelegate.window!, duration: 0.3, options: .transitionCrossDissolve, animations: {
-                            sceneDelegate.window?.rootViewController = loginViewController
+                            sceneDelegate.window?.rootViewController = navigationController
                         })
                     }
                 case .failure(let error):
@@ -44,4 +48,3 @@ class HomeViewController: UIViewController {
         }
     }
 }
-
