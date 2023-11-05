@@ -15,9 +15,14 @@ class RegistrationViewController: UIViewController {
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var confirmPass: UITextField!
     
+    // Add two properties for the password visibility buttons
+    private var passwordVisibilityButton: UIButton!
+    private var confirmPassVisibilityButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        // Setup password visibility toggle for both password fields
+        setupPasswordVisibilityToggle()
     }
     
     @IBAction func registerButton(_ sender: UIButton) {
@@ -41,7 +46,7 @@ class RegistrationViewController: UIViewController {
             self.attemptRegistration()
         }
     }
-
+    
     func attemptRegistration() {
         // Input validation
         guard
@@ -59,14 +64,14 @@ class RegistrationViewController: UIViewController {
         // Call the function to handle user registration
         registerUser(name: nameText, email: emailText, username: usernameText, password: passwordText)
     }
-            
+    
     func registerUser(name: String, email: String, username: String, password: String) {
         var newUser = User()
         newUser.username = username
         newUser.password = password
         newUser.email = email
         newUser.name = name
-
+        
         newUser.signup { result in
             DispatchQueue.main.async {
                 switch result {
@@ -79,7 +84,7 @@ class RegistrationViewController: UIViewController {
             }
         }
     }
-
+    
     func loginUser(username: String, password: String) {
         User.login(username: username, password: password) { result in
             DispatchQueue.main.async {
@@ -103,11 +108,8 @@ class RegistrationViewController: UIViewController {
         
         // This will reset the navigation stack and make the HomeViewController the root view controller
         if let navigationController = self.navigationController {
-            // Animation should be 'false' here to avoid strange popping behavior
             navigationController.setViewControllers([homeVC], animated: false)
         } else {
-            // If navigationController is nil, it likely means that your view controller is not within a navigation controller
-            // In this case, you may want to present it modally or investigate why it's not within a navigation controller
             presentAlert(title: "Navigation Error", message: "Navigation controller not found.")
         }
     }
@@ -116,5 +118,55 @@ class RegistrationViewController: UIViewController {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         self.present(alert, animated: true)
+    }
+    
+    private func createToggleButton(normalImage: UIImage?, selectedImage: UIImage?) -> UIButton {
+        var config = UIButton.Configuration.plain()
+        config.image = normalImage?.withRenderingMode(.alwaysOriginal)
+        config.imagePlacement = .leading
+        config.baseForegroundColor = UIColor.clear
+        let paddingValue: CGFloat = 10
+        config.contentInsets = NSDirectionalEdgeInsets(top: paddingValue, leading: paddingValue, bottom: paddingValue, trailing: paddingValue)
+        
+        let button = UIButton(configuration: config, primaryAction: nil)
+        button.setImage(normalImage?.withRenderingMode(.alwaysOriginal), for: .normal)
+        button.setImage(selectedImage?.withRenderingMode(.alwaysOriginal), for: .selected)
+        button.imageView?.contentMode = .scaleAspectFit
+        
+        button.configurationUpdateHandler = { button in
+            if button.isHighlighted || button.isSelected {
+                button.configuration?.image = selectedImage?.withRenderingMode(.alwaysOriginal)
+            } else {
+                button.configuration?.image = normalImage?.withRenderingMode(.alwaysOriginal)
+            }
+            button.configuration?.baseForegroundColor = .clear
+        }
+        return button
+    }
+
+    private func setupPasswordVisibilityToggle() {
+        passwordVisibilityButton = createToggleButton(normalImage: UIImage(named: "eyeSlashImage"), selectedImage: UIImage(named: "eyeImage"))
+        passwordVisibilityButton.isSelected = false // Initially the button should not show the password
+        passwordVisibilityButton.addTarget(self, action: #selector(togglePasswordVisibility(sender:)), for: .touchUpInside)
+        password.isSecureTextEntry = true // Initially the password is hidden
+        password.rightView = passwordVisibilityButton
+        password.rightViewMode = .whileEditing
+
+        confirmPassVisibilityButton = createToggleButton(normalImage: UIImage(named: "eyeSlashImage"), selectedImage: UIImage(named: "eyeImage"))
+        confirmPassVisibilityButton.isSelected = false // Initially the button should not show the password
+        confirmPassVisibilityButton.addTarget(self, action: #selector(toggleConfirmPassVisibility(sender:)), for: .touchUpInside)
+        confirmPass.isSecureTextEntry = true // Initially the confirm password is hidden
+        confirmPass.rightView = confirmPassVisibilityButton
+        confirmPass.rightViewMode = .whileEditing
+    }
+
+    @objc func togglePasswordVisibility(sender: UIButton) {
+        sender.isSelected.toggle()
+        password.isSecureTextEntry = !sender.isSelected
+    }
+
+    @objc func toggleConfirmPassVisibility(sender: UIButton) {
+        sender.isSelected.toggle()
+        confirmPass.isSecureTextEntry = !sender.isSelected
     }
 }
