@@ -12,10 +12,55 @@ class ViewController: UIViewController {
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
     
+    // Add a property for the password visibility button
+    private var passwordVisibilityButton: UIButton!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        setupPasswordVisibilityToggle()
     }
+
+    private func setupPasswordVisibilityToggle() {
+        // Ensure the button is created with a custom type to be able to customize it fully
+        passwordVisibilityButton = UIButton(type: .custom)
+        
+        // Set the images for the button for both states
+        let normalImage = UIImage(named: "eyeSlashImage")?.withRenderingMode(.alwaysOriginal)
+        let selectedImage = UIImage(named: "eyeImage")?.withRenderingMode(.alwaysOriginal)
+        
+        // Create a new button configuration for a plain style button
+        var config = UIButton.Configuration.plain()
+        config.image = normalImage
+        config.imagePlacement = .leading  // or .trailing depending on your layout
+        config.preferredSymbolConfigurationForImage = UIImage.SymbolConfiguration(pointSize: 24, weight: .light) // Adjust pointSize as needed
+        config.baseForegroundColor = UIColor.black // or any color you want for the image
+        
+        // Apply the configuration to the passwordVisibilityButton
+        passwordVisibilityButton.configuration = config
+
+        // Set the button's content mode
+        passwordVisibilityButton.imageView?.contentMode = .scaleAspectFit
+
+        // Set the password text field's rightView to the passwordVisibilityButton
+        password.rightView = passwordVisibilityButton
+        password.rightViewMode = .always
+        
+        // Add the action to toggle password visibility
+        passwordVisibilityButton.addTarget(self, action: #selector(togglePasswordVisibility), for: .touchUpInside)
+
+        // Set the images for different button states
+        passwordVisibilityButton.setImage(normalImage, for: .normal)
+        passwordVisibilityButton.setImage(selectedImage, for: .selected)
+    }
+
+    @objc private func togglePasswordVisibility() {
+        // Toggle the secure text entry of the password field
+        password.isSecureTextEntry.toggle()
+
+        // Toggle the selected state of the button, which will change the image
+        passwordVisibilityButton.isSelected.toggle()
+    }
+
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
