@@ -7,23 +7,38 @@
 
 import UIKit
 
-class MediactionReminderViewController: UIViewController {
-
+class MediactionReminderViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return models.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        <#code#>
+    }
+    
+    // TableView connection outlet
+    @IBOutlet weak var remindTable: UITableView!
+    
+    // Add button action for when user wants to add a new reminder
+    @IBAction func didTapAdd(_ sender: Any) {
+    }
+    
+    // Empty array to store info regarding the variables in our 'struct'
+    var models = [MedReminder]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        // Setting table delegate and source to 'self'
+        remindTable.delegate = self
+        remindTable.dataSource = self
     }
-    
 
-    /*
-    // MARK: - Navigation
+}
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+struct MedReminder {
+    let title: String
+    let date: Date
+    let identifier: String
 }

@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+struct ElderProfile {
+    var elderName: String
+    var elderAge: Int
+}
