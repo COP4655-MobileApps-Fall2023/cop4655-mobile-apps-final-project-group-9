@@ -19,12 +19,14 @@ class AddViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Configuring 'Save' button
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .done, target: self, action: #selector(didTapSaveButton))
 
-     
     }
     
     // Function that saves the reminder
-    @IBAction func didTapSaveButton() {
+    @objc func didTapSaveButton() {
         if let remindText = reminderTextField.text, !remindText.isEmpty,
            let descriptionText = descriptionTextField.text, !descriptionText.isEmpty {
             
