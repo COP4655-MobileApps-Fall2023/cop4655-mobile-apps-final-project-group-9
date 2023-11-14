@@ -96,7 +96,7 @@
         <!--Navigation Controller-->
         <scene sceneID="3Bq-Cr-rFh">
             <objects>
-                <navigationController storyboardIdentifier="LoginNavController" id="jpl-7b-fAc" sceneMemberID="viewController">
+                <navigationController id="jpl-7b-fAc" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="J3V-UV-LSk">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -109,10 +109,10 @@
             </objects>
             <point key="canvasLocation" x="-816" y="-2"/>
         </scene>
-        <!--View Controller-->
+        <!--Forgot Pass View Controller-->
         <scene sceneID="df2-xh-ocj">
             <objects>
-                <viewController storyboardIdentifier="ForgotPassViewController" id="Rwy-2t-FU3" sceneMemberID="viewController">
+                <viewController id="Rwy-2t-FU3" customClass="ForgotPassViewController" customModule="SeniorSignal" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FnN-sC-cFp">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -153,104 +153,6 @@
             </objects>
             <point key="canvasLocation" x="901.52671755725191" y="-385.21126760563385"/>
         </scene>
-        <!--Create Elder View Controller-->
-        <scene sceneID="Pux-NO-20p">
-            <objects>
-                <viewController storyboardIdentifier="CreateElderViewController" id="RFB-4k-2z8" customClass="CreateElderViewController" customModule="SeniorSignal" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="dyF-Xp-IaS">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="oBL-ha-xlX">
-                                <rect key="frame" x="96" y="219.66666666666663" width="201" height="344"/>
-                                <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b6C-5d-lJE" userLabel="elderName">
-                                        <rect key="frame" x="0.0" y="0.0" width="201" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Age" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="paC-aO-1hx" userLabel="elderAge">
-                                        <rect key="frame" x="0.0" y="62.000000000000028" width="201" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IoI-tW-u1G" userLabel="elderPhone">
-                                        <rect key="frame" x="0.0" y="124.00000000000003" width="201" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Emergency Contact Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="crY-xB-lsj" userLabel="ecName">
-                                        <rect key="frame" x="0.0" y="186.00000000000003" width="201" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Emergency Contact Phone" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mrd-cH-HT3" userLabel="ecPhone">
-                                        <rect key="frame" x="0.0" y="248" width="201" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contact Relationship" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ywi-gP-y7z" userLabel="ecRelationship">
-                                        <rect key="frame" x="0.0" y="310" width="201" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                </subviews>
-                            </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ezt-ce-c8j">
-                                <rect key="frame" x="141" y="598.66666666666663" width="105" height="34.333333333333371"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="tinted" title="Save Elder"/>
-                                <connections>
-                                    <action selector="saveElderProfile:" destination="RFB-4k-2z8" eventType="touchUpInside" id="TCt-jx-Bh2"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="st9-0E-mLE"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="ezt-ce-c8j" firstAttribute="leading" secondItem="st9-0E-mLE" secondAttribute="leading" constant="141" id="4s9-Tc-ER9"/>
-                            <constraint firstItem="oBL-ha-xlX" firstAttribute="leading" secondItem="st9-0E-mLE" secondAttribute="leading" constant="96" id="5tO-mv-8QJ"/>
-                            <constraint firstItem="st9-0E-mLE" firstAttribute="trailing" secondItem="ezt-ce-c8j" secondAttribute="trailing" constant="147" id="Lrq-h5-ol1"/>
-                            <constraint firstItem="ezt-ce-c8j" firstAttribute="top" secondItem="oBL-ha-xlX" secondAttribute="bottom" constant="35" id="Nor-y1-leG"/>
-                            <constraint firstItem="oBL-ha-xlX" firstAttribute="centerX" secondItem="dyF-Xp-IaS" secondAttribute="centerX" id="eBJ-po-N0I"/>
-                            <constraint firstItem="st9-0E-mLE" firstAttribute="bottom" secondItem="ezt-ce-c8j" secondAttribute="bottom" constant="185" id="geZ-qY-t4J"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="xqM-kV-xMr"/>
-                    <connections>
-                        <outlet property="ecName" destination="crY-xB-lsj" id="UPQ-uJ-ad2"/>
-                        <outlet property="ecPhone" destination="mrd-cH-HT3" id="msy-3E-KqF"/>
-                        <outlet property="ecRelationship" destination="ywi-gP-y7z" id="iLv-Y2-NYb"/>
-                        <outlet property="elderAge" destination="paC-aO-1hx" id="zhn-bX-nov"/>
-                        <outlet property="elderName" destination="b6C-5d-lJE" id="eKt-FI-5fu"/>
-                        <outlet property="elderPhone" destination="IoI-tW-u1G" id="0fm-Zz-F5m"/>
-                        <outlet property="elderSave" destination="ezt-ce-c8j" id="pRP-IG-YJJ"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="IGz-XW-tgo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1677" y="1694"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="xcF-qP-T8l">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Zyx-9p-akC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <navigationController storyboardIdentifier="profileNavController" id="hWt-LP-SaW" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="El7-xA-amX"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="HNv-0C-qyp">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="o6C-tX-mw3">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </toolbar>
-                    <connections>
-                        <segue destination="hNY-2F-mf6" kind="relationship" relationship="rootViewController" id="oI3-x3-b7r"/>
-                    </connections>
-                </navigationController>
-            </objects>
-            <point key="canvasLocation" x="-40" y="1141"/>
-        </scene>
         <!--Home View Controller-->
         <scene sceneID="cmL-us-bax">
             <objects>
@@ -260,150 +162,39 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="38D-2D-mLh">
-                                <rect key="frame" x="90" y="154" width="213" height="28.666666666666657"/>
+                                <rect key="frame" x="90" y="110" width="213" height="28.666666666666657"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w8b-FY-mb9">
-                                <rect key="frame" x="127.66666666666669" y="477" width="118" height="35"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="tinted" title="Create Elder"/>
-                                <connections>
-                                    <segue destination="RFB-4k-2z8" kind="show" id="cPa-hv-yEO"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RI9-xW-bly">
-                                <rect key="frame" x="148" y="749" width="77.333333333333314" height="35"/>
+                                <rect key="frame" x="158" y="749" width="96" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="Logout"/>
                                 <connections>
                                     <action selector="logoutButton:" destination="hNY-2F-mf6" eventType="touchUpInside" id="k94-GW-MCh"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="UnC-4v-1Lq">
-                                <rect key="frame" x="76.000000000000014" y="237" width="221.33333333333337" height="185"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ElderlyCell" id="hF3-zL-e2U">
-                                        <rect key="frame" x="0.0" y="50" width="221.33333333333337" height="43.666667938232422"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hF3-zL-e2U" id="kAt-51-pfb">
-                                            <rect key="frame" x="0.0" y="0.0" width="221.33333333333337" height="43.666667938232422"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="SI6-0J-txm" kind="show" identifier="ShowElderDetail" id="K1t-Hh-q7Q"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="LMt-q3-Yoi"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="w8b-FY-mb9" firstAttribute="centerX" secondItem="RI9-xW-bly" secondAttribute="centerX" id="2AH-86-ggs"/>
-                            <constraint firstItem="w8b-FY-mb9" firstAttribute="centerX" secondItem="UnC-4v-1Lq" secondAttribute="centerX" id="2fT-Wa-sFF"/>
                             <constraint firstItem="38D-2D-mLh" firstAttribute="leading" secondItem="LMt-q3-Yoi" secondAttribute="leading" constant="90" id="BDp-jH-er2"/>
                             <constraint firstItem="38D-2D-mLh" firstAttribute="top" secondItem="LMt-q3-Yoi" secondAttribute="top" constant="51" id="Ci9-8F-RC2"/>
-                            <constraint firstItem="UnC-4v-1Lq" firstAttribute="leading" secondItem="LMt-q3-Yoi" secondAttribute="leading" constant="76" id="HAt-hs-1vH"/>
-                            <constraint firstItem="w8b-FY-mb9" firstAttribute="top" secondItem="UnC-4v-1Lq" secondAttribute="bottom" constant="55" id="OaI-ex-M4z"/>
-                            <constraint firstAttribute="bottom" secondItem="w8b-FY-mb9" secondAttribute="bottom" constant="340" id="Umk-8I-3WD"/>
-                            <constraint firstItem="UnC-4v-1Lq" firstAttribute="top" secondItem="38D-2D-mLh" secondAttribute="bottom" constant="54.333333333333343" id="WVb-Gn-GSk"/>
+                            <constraint firstItem="LMt-q3-Yoi" firstAttribute="trailing" secondItem="RI9-xW-bly" secondAttribute="trailing" constant="139" id="Kd3-Fh-Xap"/>
                             <constraint firstItem="38D-2D-mLh" firstAttribute="centerX" secondItem="Xfh-dD-h2r" secondAttribute="centerX" id="ah5-Ld-Fwl"/>
-                            <constraint firstItem="RI9-xW-bly" firstAttribute="leading" secondItem="LMt-q3-Yoi" secondAttribute="leading" constant="148" id="lBf-Wd-hOz"/>
+                            <constraint firstItem="RI9-xW-bly" firstAttribute="leading" secondItem="LMt-q3-Yoi" secondAttribute="leading" constant="158" id="lBf-Wd-hOz"/>
                             <constraint firstItem="LMt-q3-Yoi" firstAttribute="bottom" secondItem="RI9-xW-bly" secondAttribute="bottom" constant="34" id="r9s-jL-jJm"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="qoi-3h-qCd"/>
                     <connections>
-                        <outlet property="tableView" destination="UnC-4v-1Lq" id="sTr-ma-pdq"/>
                         <outlet property="welcomeLabel" destination="38D-2D-mLh" id="srF-Nv-3Hd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8rJ-u7-smO" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="776" y="1141"/>
-        </scene>
-        <!--Elder Detail View Controller-->
-        <scene sceneID="gru-iP-6ox">
-            <objects>
-                <viewController storyboardIdentifier="ElderDetailViewController" id="SI6-0J-txm" customClass="ElderDetailViewController" customModule="SeniorSignal" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="KbG-8G-dTn">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="59" translatesAutoresizingMaskIntoConstraints="NO" id="ZBc-Ls-NL1">
-                                <rect key="frame" x="104" y="190" width="185" height="472"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Elderly Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FJW-6K-LxX">
-                                        <rect key="frame" x="42" y="0.0" width="101" height="20.333333333333332"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="20.333333333333332" id="Qmb-M9-XdU"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Age" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W7J-A5-kX8">
-                                        <rect key="frame" x="77.666666666666657" y="79.333333333333314" width="30" height="20.333333333333329"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="20.333333333333329" id="6YI-Ie-Hyi"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6v7-DC-crc">
-                                        <rect key="frame" x="36.33333333333335" y="158.66666666666669" width="112.66666666666669" height="34.333333333333343"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="34.333333333333343" id="aVg-Dg-ahc"/>
-                                        </constraints>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Medication Reminder"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tKR-6f-9xL">
-                                        <rect key="frame" x="46.33333333333335" y="252.00000000000003" width="92.666666666666686" height="34.333333333333343"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="34.333333333333343" id="YXw-4y-629"/>
-                                        </constraints>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Calender"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aoG-VM-eBB">
-                                        <rect key="frame" x="12.333333333333329" y="345.33333333333337" width="160.66666666666669" height="34.333333333333314"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="34.333333333333314" id="9BC-t6-WXY"/>
-                                        </constraints>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Support Requests"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TqL-jA-pV0">
-                                        <rect key="frame" x="5.3333333333333286" y="438.66666666666663" width="174.66666666666669" height="33.333333333333314"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Emergency Contact"/>
-                                    </button>
-                                </subviews>
-                            </stackView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="hVu-Ks-Cnq"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="ZBc-Ls-NL1" firstAttribute="centerY" secondItem="KbG-8G-dTn" secondAttribute="centerY" id="0xw-Gm-uwd"/>
-                            <constraint firstItem="ZBc-Ls-NL1" firstAttribute="centerX" secondItem="KbG-8G-dTn" secondAttribute="centerX" id="97E-Vh-bmr"/>
-                            <constraint firstItem="ZBc-Ls-NL1" firstAttribute="top" secondItem="hVu-Ks-Cnq" secondAttribute="top" constant="87" id="Dn6-3C-Cbv"/>
-                            <constraint firstItem="ZBc-Ls-NL1" firstAttribute="leading" secondItem="hVu-Ks-Cnq" secondAttribute="leading" constant="104" id="G0q-5u-wvW"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="yoZ-8h-aeU"/>
-                    <connections>
-                        <outlet property="ageLabel" destination="W7J-A5-kX8" id="v2w-sM-E9A"/>
-                        <outlet property="nameLabel" destination="FJW-6K-LxX" id="WNd-jb-KU7"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dar-HF-Bdb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1675.5725190839694" y="1014.7887323943662"/>
+            <point key="canvasLocation" x="-40.458015267175568" y="748.59154929577471"/>
         </scene>
         <!--Registration View Controller-->
         <scene sceneID="zxd-dw-ic7">
@@ -417,9 +208,6 @@
                                 <rect key="frame" x="123.66666666666669" y="246.33333333333337" width="146" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="elderName:" destination="xGh-g5-1C9" eventType="editingDidEnd" id="Ufl-1W-aL0"/>
-                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="M8O-d9-jzk">
                                 <rect key="frame" x="123.66666666666669" y="305.33333333333331" width="146" height="34"/>
@@ -498,7 +286,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vhY-ww-gPZ" sceneMemberID="firstResponder"/>
-                <exit id="xGh-g5-1C9" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="901.52671755725191" y="343.66197183098592"/>
         </scene>

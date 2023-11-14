@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A02EE2F2AFA7D29009A587F /* ElderProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A02EE2E2AFA7D29009A587F /* ElderProfileModel.swift */; };
+		E53469AA2B001F070077B336 /* CreateElderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53469A92B001F070077B336 /* CreateElderViewController.swift */; };
 		E5783B122AF6E64E007F51BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5783B112AF6E64E007F51BB /* AppDelegate.swift */; };
 		E5783B142AF6E64E007F51BB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5783B132AF6E64E007F51BB /* SceneDelegate.swift */; };
 		E5783B162AF6E64E007F51BB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5783B152AF6E64E007F51BB /* ViewController.swift */; };
@@ -18,9 +20,12 @@
 		E5783B2D2AF6E8F5007F51BB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5783B2C2AF6E8F5007F51BB /* HomeViewController.swift */; };
 		E5783B2F2AF7137E007F51BB /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5783B2E2AF7137E007F51BB /* RegistrationViewController.swift */; };
 		E5ACBB302AF7333500655347 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ACBB2F2AF7333500655347 /* ForgotPasswordViewController.swift */; };
+		E5CA98BB2B0074C000F4088F /* ElderDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CA98BA2B0074C000F4088F /* ElderDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3A02EE2E2AFA7D29009A587F /* ElderProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElderProfileModel.swift; sourceTree = "<group>"; };
+		E53469A92B001F070077B336 /* CreateElderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateElderViewController.swift; sourceTree = "<group>"; };
 		E5783B0E2AF6E64E007F51BB /* SeniorSignal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeniorSignal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5783B112AF6E64E007F51BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5783B132AF6E64E007F51BB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -33,6 +38,7 @@
 		E5783B2C2AF6E8F5007F51BB /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		E5783B2E2AF7137E007F51BB /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		E5ACBB2F2AF7333500655347 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		E5CA98BA2B0074C000F4088F /* ElderDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElderDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,16 +75,43 @@
 				E5783B112AF6E64E007F51BB /* AppDelegate.swift */,
 				E5783B132AF6E64E007F51BB /* SceneDelegate.swift */,
 				E5783B172AF6E64E007F51BB /* Main.storyboard */,
-				E5783B272AF6E79A007F51BB /* UserModel.swift */,
-				E5783B152AF6E64E007F51BB /* ViewController.swift */,
-				E5783B2C2AF6E8F5007F51BB /* HomeViewController.swift */,
-				E5783B2E2AF7137E007F51BB /* RegistrationViewController.swift */,
-				E5ACBB2F2AF7333500655347 /* ForgotPasswordViewController.swift */,
+				E5CA98BC2B016DC200F4088F /* Models */,
+				E5CA98BD2B016DEA00F4088F /* Login View Controllers */,
+				E5CA98BE2B03D21A00F4088F /* User Profile */,
 				E5783B1A2AF6E650007F51BB /* Assets.xcassets */,
 				E5783B1C2AF6E650007F51BB /* LaunchScreen.storyboard */,
 				E5783B1F2AF6E650007F51BB /* Info.plist */,
 			);
 			path = SeniorSignal;
+			sourceTree = "<group>";
+		};
+		E5CA98BC2B016DC200F4088F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E5783B272AF6E79A007F51BB /* UserModel.swift */,
+				3A02EE2E2AFA7D29009A587F /* ElderProfileModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E5CA98BD2B016DEA00F4088F /* Login View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E5783B152AF6E64E007F51BB /* ViewController.swift */,
+				E5783B2E2AF7137E007F51BB /* RegistrationViewController.swift */,
+				E5ACBB2F2AF7333500655347 /* ForgotPasswordViewController.swift */,
+			);
+			path = "Login View Controllers";
+			sourceTree = "<group>";
+		};
+		E5CA98BE2B03D21A00F4088F /* User Profile */ = {
+			isa = PBXGroup;
+			children = (
+				E5783B2C2AF6E8F5007F51BB /* HomeViewController.swift */,
+				E53469A92B001F070077B336 /* CreateElderViewController.swift */,
+				E5CA98BA2B0074C000F4088F /* ElderDetailViewController.swift */,
+			);
+			path = "User Profile";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -158,10 +191,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E53469AA2B001F070077B336 /* CreateElderViewController.swift in Sources */,
+				3A02EE2F2AFA7D29009A587F /* ElderProfileModel.swift in Sources */,
 				E5783B2F2AF7137E007F51BB /* RegistrationViewController.swift in Sources */,
 				E5ACBB302AF7333500655347 /* ForgotPasswordViewController.swift in Sources */,
 				E5783B162AF6E64E007F51BB /* ViewController.swift in Sources */,
 				E5783B122AF6E64E007F51BB /* AppDelegate.swift in Sources */,
+				E5CA98BB2B0074C000F4088F /* ElderDetailViewController.swift in Sources */,
 				E5783B282AF6E79A007F51BB /* UserModel.swift in Sources */,
 				E5783B142AF6E64E007F51BB /* SceneDelegate.swift in Sources */,
 				E5783B2D2AF6E8F5007F51BB /* HomeViewController.swift in Sources */,

@@ -108,21 +108,21 @@ class ViewController: UIViewController {
     }
     
     private func navigateToHome() {
-        // Transition to the HomeViewController
-        if let homeViewController = storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController {
-            // Check for a scene delegate and transition the window's root view controller to the home view controller
+        // Transition to the navigation controller associated with the HomeViewController
+        if let profileNavController = storyboard?.instantiateViewController(withIdentifier: "profileNavController") as? UINavigationController {
+            // Check for a scene delegate and transition the window's root view controller to the profile navigation controller
             if let sceneDelegate = view.window?.windowScene?.delegate as? SceneDelegate {
                 UIView.transition(with: sceneDelegate.window!, duration: 0.3, options: .transitionCrossDissolve, animations: {
-                    sceneDelegate.window?.rootViewController = homeViewController
+                    sceneDelegate.window?.rootViewController = profileNavController
                 })
             } else {
                 // Fallback in case the scene delegate cannot be retrieved
                 // This could navigate within a navigation controller if one is present
-                navigationController?.pushViewController(homeViewController, animated: true)
+                navigationController?.pushViewController(profileNavController.viewControllers.first!, animated: true)
             }
         } else {
-            // Handle the case where the HomeViewController couldn't be instantiated
-            showAlert(title: "Error", message: "HomeViewController could not be instantiated.")
+            // Handle the case where the profileNavController couldn't be instantiated
+            showAlert(title: "Error", message: "Navigation controller could not be instantiated.")
         }
     }
 }
