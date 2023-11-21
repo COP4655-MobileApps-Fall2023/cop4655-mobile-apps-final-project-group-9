@@ -23,15 +23,15 @@ Video Link: https://youtube.com/shorts/beGKLf9zyEc
 
 **Required Must-have Stories**
 
-* User (caregiver/relative) can set up an account.
-* Senior can create and configure their own profile.
-* Caregiver/relative can add a senior’s profile to their monitoring list.
-* Caregiver/relative can initiate a check-in anytime.
-* Senior receives a notification prompting them to indicate their status ("Yes, I'm okay" or "No, I'm not okay, I need help").
-* Caregiver/relative receives immediate feedback/notification about senior’s response.
-* System can send automatic check-ins based on a predefined schedule set by the caregiver/relative.
-* Senior can manually send a "need help" signal even without a prompt.
-* Caregiver/relative can view check-in history.
+[x] User (caregiver/relative) can set up an account.
+[x] Senior can create and configure their own profile.
+[x] Caregiver/relative can add a senior’s profile to their monitoring list.
+[x] Caregiver/relative can initiate a check-in anytime.
+[x] Senior receives a notification prompting them to indicate their status ("Yes, I'm okay" or "No, I'm not okay, I need help").
+[x] Caregiver/relative receives immediate feedback/notification about senior’s response.
+[x] System can send automatic check-ins based on a predefined schedule set by the caregiver/relative.
+[x] Senior can manually send a "need help" signal even without a prompt.
+[x] Caregiver/relative can view check-in history.
 
 **Optional Nice-to-have Stories**
 
