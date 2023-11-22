@@ -127,3 +127,7 @@ Video Link: https://youtube.com/shorts/beGKLf9zyEc
 ### [BONUS] Digital Wireframes & Mockups
 
 https://www.figma.com/file/NtwgN74IbcYnvAJGXu4IT2/Uhhhhhh?type=design&node-id=0%3A1&mode=design&t=4XnJzKI5z8AVlTN3-1
+
+## Demo Video
+
+### Demo Day practice demo: [https://youtu.be/wR6cxmScm9g]
