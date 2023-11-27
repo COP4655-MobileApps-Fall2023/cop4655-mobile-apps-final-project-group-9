@@ -8,31 +8,6 @@
 import UIKit
 import ParseSwift
 
-// Define the ElderlyProfile struct to match your Parse Server class structure
-struct Elderly: ParseObject, Codable {
-    var originalData: Data?
-    var objectId: String?
-    var createdAt: Date?
-    var updatedAt: Date?
-    var ACL: ParseACL?
-    
-    // Custom fields must match the keys you created in your Parse Server class
-    var caretaker: Pointer<User>?
-    var elderName: String?
-    var elderAge: String?
-    var elderPhone: String?
-    var ecName: String?
-    var ecPhone: String?
-    var ecRelationship: String?
-    
-    // Implementing protocol requirements
-    static var className: String {
-        return "Elderly" // This must match the name of your Parse class
-    }
-    
-    // Required initializer
-    init() {}
-}
 
 class CreateElderViewController: UIViewController {
     @IBOutlet weak var elderName: UITextField!
@@ -63,22 +38,22 @@ class CreateElderViewController: UIViewController {
             return
         }
         
-        // Create a new ElderlyProfile object
-        var elderly = Elderly()
-        elderly.elderName = elderNameText
-        elderly.elderAge = elderAgeText
-        elderly.elderPhone = elderPhoneText
-        elderly.ecName = ecNameText
-        elderly.ecPhone = ecPhoneText
-        elderly.ecRelationship = ecRelationshipText
-        elderly.caretaker = Pointer<User>(objectId: currentUserId)
+        // Create a new ElderProfileProfile object
+        var ElderProfile = ElderProfile()
+        ElderProfile.elderName = elderNameText
+        ElderProfile.elderAge = elderAgeText
+        ElderProfile.elderPhone = elderPhoneText
+        ElderProfile.ecName = ecNameText
+        ElderProfile.ecPhone = ecPhoneText
+        ElderProfile.ecRelationship = ecRelationshipText
+        ElderProfile.caretaker = Pointer<User>(objectId: currentUserId)
         
-        // Save the new ElderlyProfile to the database
-        elderly.save { result in
+        // Save the new ElderProfileProfile to the database
+        ElderProfile.save { result in
             DispatchQueue.main.async {
                 switch result {
-                case .success(let savedElderly):
-                    print("Elderly profile saved successfully with name: \(String(describing: savedElderly.elderName))")
+                case .success(let savedElderProfile):
+                    print("ElderProfile profile saved successfully with name: \(String(describing: savedElderProfile.elderName))")
                     self.navigateToHomeViewController()
                 case .failure(let error):
                     self.presentAlert(title: "Save Error", message: error.localizedDescription)

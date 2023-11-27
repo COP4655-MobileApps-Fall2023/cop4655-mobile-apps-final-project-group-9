@@ -10,7 +10,7 @@ import ParseSwift
 
 class ElderDetailViewController: UIViewController {
     // Assume that Elderly is your Parse model class
-    var elderlyProfile: Elderly?
+    var elderlyProfile: ElderProfile?
 
     // Example outlets
     @IBOutlet weak var nameLabel: UILabel!
