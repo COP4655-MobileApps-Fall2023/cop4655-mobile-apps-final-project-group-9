@@ -14,7 +14,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet weak var caregiverName: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var caregiverRole: UILabel!
-
+    @IBOutlet weak var caregiverProfilePic: UIImageView!
     
     // Make sure this outlet is connected in your storyboard
     
@@ -27,34 +27,78 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.dataSource = self
         tableView.delegate = self
         
-
+//        let testImage = UIImage(named: "young adult woman smiling") // Replace with an image that you have in your assets
+//        caregiverProfilePic.image = testImage
+//        caregiverProfilePic.layer.cornerRadius = caregiverProfilePic.frame.size.width / 2
+//        caregiverProfilePic.clipsToBounds = true
+//
+        
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         loadUserData()
         fetchElderlyProfiles()
         caregiverRole.text = "Caregiver" // Set the role label directly
+        
+        // Add this line to show the toolbar
+        self.navigationController?.setToolbarHidden(false, animated: animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        // Hide the toolbar when the view is about to disappear
+        self.navigationController?.setToolbarHidden(true, animated: animated)
     }
     
     func loadUserData() {
+        // Check if there is a current logged-in user
         if let currentUser = User.current {
-            // Assuming 'name' is the key where the user's name is stored
+            // Fetch the user's name and set it to the UILabel
             let userName = currentUser.name ?? "No Name"
-            
             DispatchQueue.main.async {
                 self.caregiverName.text = userName
-                // The roleLabel has already been set in viewWillAppear
+                // Set a default image while the profile picture is being fetched
+                self.caregiverProfilePic.image = UIImage(named: "defaultProfileImage")
+                self.caregiverProfilePic.contentMode = .scaleAspectFit
+                self.caregiverProfilePic.layer.cornerRadius = self.caregiverProfilePic.frame.size.width / 2
+                self.caregiverProfilePic.clipsToBounds = true
+            }
+            
+            // Check if the user has a profile picture set
+            if let profilePicFile = currentUser.profilePic {
+                // Fetch the profile picture file
+                profilePicFile.fetch { result in
+                    switch result {
+                    case .success(let file):
+                        // Get the URL string from the file and attempt to convert it to a URL
+                        if let urlString = file.url?.absoluteString {
+                            print("Profile image URL: \(urlString)") // For debugging
+                            guard let url = URL(string: urlString) else {
+                                print("Invalid URL")
+                                return
+                            }
+                            // Load the image from the URL and set it to the UIImageView
+                            self.loadImage(from: url) { image in
+                                DispatchQueue.main.async {
+                                    self.caregiverProfilePic.image = image ?? UIImage(named: "defaultProfileImage")
+                                }
+                            }
+                        }
+                    case .failure(let error):
+                        // Handle the error if the profile picture could not be fetched
+                        print("Could not fetch profile picture: \(error.localizedDescription)")
+                    }
+                }
             }
         } else {
-            // Handle case where there is no logged-in user
-            // Redirect to login screen or show appropriate message
+            // If no user is logged in, handle accordingly (e.g., redirect to login)
             DispatchQueue.main.async {
                 self.performSegue(withIdentifier: "showLoginScreen", sender: self)
             }
         }
     }
-        
+
         func fetchElderlyProfiles() {
             // Replace 'Elderly' with the actual name of your elderly profile class
             let query = ElderProfile.query()
@@ -116,6 +160,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             completion(image)
         }.resume()
     }
+    
         
         // This method prepares for the segue before it happens
         override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -154,8 +199,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 }
             }
         }
-    }
     
-    // You will need to define the Elderly struct/class that conforms to ParseObject and Codable
-    // Ensure that it matches the fields and types you have defined in your Parse server
+}
 
