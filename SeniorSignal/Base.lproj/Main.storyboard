@@ -159,7 +159,7 @@
             <objects>
                 <viewController storyboardIdentifier="CreateElderViewController" id="RFB-4k-2z8" customClass="CreateElderViewController" customModule="SeniorSignal" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dyF-Xp-IaS">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="749"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="666"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="oBL-ha-xlX">
@@ -236,6 +236,7 @@
         <scene sceneID="xcF-qP-T8l">
             <objects>
                 <navigationController storyboardIdentifier="profileNavController" toolbarHidden="NO" id="hWt-LP-SaW" sceneMemberID="viewController">
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" id="El7-xA-amX"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="HNv-0C-qyp">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -267,7 +268,7 @@
             <objects>
                 <viewController storyboardIdentifier="HomeViewController" id="hNY-2F-mf6" customClass="HomeViewController" customModule="SeniorSignal" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Xfh-dD-h2r">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="749"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="666"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dre-DQ-NlR">
@@ -355,7 +356,22 @@
                         <viewLayoutGuide key="safeArea" id="LMt-q3-Yoi"/>
                         <color key="backgroundColor" red="1" green="1" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <toolbarItems>
+                        <barButtonItem title="Home" image="house" catalog="system" width="90" id="xlQ-Jy-Wwa">
+                            <color key="tintColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                        <barButtonItem title="Calendar" image="calendar" catalog="system" width="90" id="NV5-1u-oWQ">
+                            <color key="tintColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                        <barButtonItem title="Alerts" image="bell" catalog="system" width="90" id="OVJ-H4-sic">
+                            <color key="tintColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                        <barButtonItem title="settings" image="gearshape" catalog="system" width="90" id="KUw-e8-pEo">
+                            <color key="tintColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" id="qoi-3h-qCd"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
                     <connections>
                         <outlet property="caregiverName" destination="38D-2D-mLh" id="DQe-Ur-Oeo"/>
                         <outlet property="caregiverProfilePic" destination="Dre-DQ-NlR" id="AYD-4n-eXU"/>
@@ -372,11 +388,11 @@
             <objects>
                 <viewController storyboardIdentifier="ElderDetailViewController" id="SI6-0J-txm" customClass="ElderDetailViewController" customModule="SeniorSignal" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KbG-8G-dTn">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="749"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="666"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="59" translatesAutoresizingMaskIntoConstraints="NO" id="ZBc-Ls-NL1">
-                                <rect key="frame" x="104" y="87" width="185" height="575"/>
+                                <rect key="frame" x="104" y="87" width="185" height="492"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Elderly Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FJW-6K-LxX">
                                         <rect key="frame" x="42" y="0.0" width="101" height="20.333333333333332"/>
@@ -421,7 +437,7 @@
                                         <buttonConfiguration key="configuration" style="plain" title="Support Requests"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TqL-jA-pV0">
-                                        <rect key="frame" x="5.3333333333333286" y="438.66666666666663" width="174.66666666666669" height="136.33333333333337"/>
+                                        <rect key="frame" x="5.3333333333333286" y="438.66666666666663" width="174.66666666666669" height="53.333333333333314"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Emergency Contact"/>
                                     </button>
@@ -547,6 +563,10 @@
     </scenes>
     <resources>
         <image name="Add senior button" width="24" height="24"/>
+        <image name="bell" catalog="system" width="125" height="128"/>
+        <image name="calendar" catalog="system" width="128" height="107"/>
+        <image name="gearshape" catalog="system" width="128" height="123"/>
+        <image name="house" catalog="system" width="128" height="104"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

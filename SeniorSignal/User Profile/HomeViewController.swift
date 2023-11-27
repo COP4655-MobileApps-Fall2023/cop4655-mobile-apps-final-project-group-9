@@ -31,9 +31,10 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
 //        caregiverProfilePic.image = testImage
 //        caregiverProfilePic.layer.cornerRadius = caregiverProfilePic.frame.size.width / 2
 //        caregiverProfilePic.clipsToBounds = true
-//
+        
         
     }
+    
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -121,25 +122,27 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         // This function configures and provides a cell to display for a given row
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // Cast the dequeued cell to your custom cell class, which should be something like `ElderlyTableViewCell`.
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ElderlyCell", for: indexPath) as? ElderlyTableViewCell else {
             fatalError("The dequeued cell is not an instance of ElderlyTableViewCell.")
         }
         let profile = elderlyProfiles[indexPath.row]
-        // Customize your cell with the elderly profile information
-        
-        //cell.textLabel?.text = profile.elderName
-        
         cell.elderNameLabel.text = profile.elderName
-                
-        // Assuming you have an IBOutlet for your imageView named 'elderProfilePic' in your `ElderlyTableViewCell` class
+
+        // Cancel any existing image loading task
+        cell.imageLoadingTask?.cancel()
+
+        // Start a new task to load the image
         if let imageUrl = profile.elderPic?.url {
-            loadImage(from: imageUrl) { image in
+            // Set a placeholder image immediately
+            cell.elderProfilePic.image = UIImage(named: "defaultPlaceholder")
+            cell.imageLoadingTask = loadImage(from: imageUrl) { image in
                 DispatchQueue.main.async {
-                    cell.elderProfilePic.image = image
-                    // Ensure that the imageView is a square for the cornerRadius to create a perfect circle
-                    cell.elderProfilePic.layer.cornerRadius = cell.elderProfilePic.frame.height / 2
-                    cell.elderProfilePic.layer.masksToBounds = true
+                    // Check if the cell is still visible and corresponds to the current indexPath
+                    if tableView.cellForRow(at: indexPath) == cell {
+                        cell.elderProfilePic.image = image
+                        cell.elderProfilePic.layer.cornerRadius = cell.elderProfilePic.frame.height / 2
+                        cell.elderProfilePic.layer.masksToBounds = true
+                    }
                 }
             }
         } else {
@@ -150,15 +153,17 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         return cell
     }
 
-    
-    func loadImage(from url: URL, completion: @escaping (UIImage?) -> Void) {
-        URLSession.shared.dataTask(with: url) { data, response, error in
+
+    func loadImage(from url: URL, completion: @escaping (UIImage?) -> Void) -> URLSessionDataTask {
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
             guard let data = data, error == nil, let image = UIImage(data: data) else {
                 completion(nil)
                 return
             }
             completion(image)
-        }.resume()
+        }
+        task.resume()
+        return task
     }
     
         
@@ -199,6 +204,5 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 }
             }
         }
-    
 }
 
