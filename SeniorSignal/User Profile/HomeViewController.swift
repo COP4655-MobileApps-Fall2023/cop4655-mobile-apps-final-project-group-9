@@ -15,23 +15,40 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var caregiverRole: UILabel!
     @IBOutlet weak var caregiverProfilePic: UIImageView!
+    @IBOutlet weak var addNewElderButton: UIButton!
     
-    // Make sure this outlet is connected in your storyboard
+    //Toolbar buttons
+    @IBOutlet weak var homeToolBarButton: UIBarButtonItem!
+    @IBOutlet weak var calendarToolBarButton: UIBarButtonItem!
+    @IBOutlet weak var notificationToolBarButton: UIBarButtonItem!
+    @IBOutlet weak var settingsToolBarButton: UIBarButtonItem!
     
     var elderlyProfiles: [ElderProfile] = [] // This array will store the fetched elderly profiles
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Customize the appearance of the addNewElderButton
+        addNewElderButton.tintColor = UIColor(red: 255/255, green: 255/255, blue: 240/255, alpha: 1.0)
+        
+        
+        
         // Set up the tableView
         tableView.dataSource = self
         tableView.delegate = self
+        
+        if let items = self.tabBarController?.tabBar.items {
+            // Assuming the plus button is the first item, adjust if it's in a different position
+            let addButton = items[0]
+            addButton.selectedImage = addButton.image?.withRenderingMode(.alwaysOriginal)
+            addButton.image = addButton.image?.withRenderingMode(.alwaysOriginal)
+        }
+        
         
 //        let testImage = UIImage(named: "young adult woman smiling") // Replace with an image that you have in your assets
 //        caregiverProfilePic.image = testImage
 //        caregiverProfilePic.layer.cornerRadius = caregiverProfilePic.frame.size.width / 2
 //        caregiverProfilePic.clipsToBounds = true
-        
         
     }
     
@@ -41,6 +58,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         loadUserData()
         fetchElderlyProfiles()
         caregiverRole.text = "Caregiver" // Set the role label directly
+        
+        //Dynamically display the title of the navigation title
+        self.navigationItem.title = "Home"
         
         // Add this line to show the toolbar
         self.navigationController?.setToolbarHidden(false, animated: animated)
@@ -165,6 +185,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         task.resume()
         return task
     }
+    
     
         
         // This method prepares for the segue before it happens
