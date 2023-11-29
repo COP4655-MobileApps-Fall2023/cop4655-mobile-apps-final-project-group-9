@@ -11,22 +11,60 @@ import ParseSwift
 class ElderDetailViewController: UIViewController {
     // Assume that Elderly is your Parse model class
     var elderlyProfile: ElderProfile?
-
-    // Example outlets
+    
+    
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var ageLabel: UILabel!
-    // Add more outlets as needed
-
+    @IBOutlet weak var elderProfileImage: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
     }
-
+    
     private func configureView() {
         // Use the elderlyProfile to configure the view
         nameLabel.text = elderlyProfile?.elderName
         ageLabel.text = "\(elderlyProfile?.elderAge ?? "") years old"
-        // Configure other UI elements with elder profile data
+        
+        // Set a default image while the profile picture is being fetched
+        elderProfileImage.image = UIImage(named: "defaultProfileImage")
+        elderProfileImage.contentMode = .scaleAspectFill
+        elderProfileImage.layer.cornerRadius = elderProfileImage.frame.size.width / 2
+        elderProfileImage.clipsToBounds = true
+        
+        // Check if the elder profile has a profile picture set
+        if let profilePicFile = elderlyProfile?.elderPic {
+            // Fetch the profile picture file
+            profilePicFile.fetch { result in
+                switch result {
+                case .success(let file):
+                    // Get the URL string from the file and attempt to convert it to a URL
+                    if let urlString = file.url?.absoluteString, let url = URL(string: urlString) {
+                        self.loadImage(from: url) { image in
+                            DispatchQueue.main.async {
+                                self.elderProfileImage.image = image ?? UIImage(named: "defaultProfileImage")
+                            }
+                        }
+                    }
+                case .failure(let error):
+                    // Handle the error if the profile picture could not be fetched
+                    print("Could not fetch elder's profile picture: \(error.localizedDescription)")
+                }
+            }
+        }
+    }
+    
+    // Assuming you have this method similar to how you load the caregiver's image
+    func loadImage(from url: URL, completion: @escaping (UIImage?) -> Void) {
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            guard let data = data, error == nil, let image = UIImage(data: data) else {
+                completion(nil)
+                return
+            }
+            completion(image)
+        }
+        task.resume()
     }
 }
 
