@@ -1,0 +1,17 @@
+//
+//  ElderProfileModel.swift
+//  SeniorSignal
+//
+//  Created by Christopher Anastasis on 11/7/23.
+//
+
+import Foundation
+import UIKit
+
+struct ElderProfile {
+    var elderName: String
+    var elderAge: Int
+    
+    //Propert to display elderly's image on the home screen
+    var elderlyProfilePic: UIImage
+}

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3A02EE2F2AFA7D29009A587F /* ElderProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A02EE2E2AFA7D29009A587F /* ElderProfileModel.swift */; };
+		5BB0DE1E2B1406FA007875AC /* ElderlyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB0DE1D2B1406FA007875AC /* ElderlyTableViewCell.swift */; };
 		E53469AA2B001F070077B336 /* CreateElderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53469A92B001F070077B336 /* CreateElderViewController.swift */; };
 		E5783B122AF6E64E007F51BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5783B112AF6E64E007F51BB /* AppDelegate.swift */; };
 		E5783B142AF6E64E007F51BB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5783B132AF6E64E007F51BB /* SceneDelegate.swift */; };
@@ -25,6 +26,7 @@
 
 /* Begin PBXFileReference section */
 		3A02EE2E2AFA7D29009A587F /* ElderProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElderProfileModel.swift; sourceTree = "<group>"; };
+		5BB0DE1D2B1406FA007875AC /* ElderlyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElderlyTableViewCell.swift; sourceTree = "<group>"; };
 		E53469A92B001F070077B336 /* CreateElderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateElderViewController.swift; sourceTree = "<group>"; };
 		E5783B0E2AF6E64E007F51BB /* SeniorSignal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeniorSignal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5783B112AF6E64E007F51BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -53,6 +55,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5BB0DE1F2B140DB1007875AC /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				5BB0DE1D2B1406FA007875AC /* ElderlyTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		E5783B052AF6E64E007F51BB = {
 			isa = PBXGroup;
 			children = (
@@ -75,6 +85,7 @@
 				E5783B112AF6E64E007F51BB /* AppDelegate.swift */,
 				E5783B132AF6E64E007F51BB /* SceneDelegate.swift */,
 				E5783B172AF6E64E007F51BB /* Main.storyboard */,
+				5BB0DE1F2B140DB1007875AC /* Cells */,
 				E5CA98BC2B016DC200F4088F /* Models */,
 				E5CA98BD2B016DEA00F4088F /* Login View Controllers */,
 				E5CA98BE2B03D21A00F4088F /* User Profile */,
@@ -201,6 +212,7 @@
 				E5783B282AF6E79A007F51BB /* UserModel.swift in Sources */,
 				E5783B142AF6E64E007F51BB /* SceneDelegate.swift in Sources */,
 				E5783B2D2AF6E8F5007F51BB /* HomeViewController.swift in Sources */,
+				5BB0DE1E2B1406FA007875AC /* ElderlyTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
