@@ -17,9 +17,33 @@ class ElderDetailViewController: UIViewController {
     @IBOutlet weak var ageLabel: UILabel!
     @IBOutlet weak var elderProfileImage: UIImageView!
     
+    @IBOutlet weak var medicationReminderSquare: UIView!
+    @IBOutlet weak var calendarSquare: UIView!
+    @IBOutlet weak var supportRequestSquare: UIView!
+    @IBOutlet weak var emergencyContactSquare: UIView!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
+        
+        medicationReminderSquare.layer.cornerRadius = 20 // Adjust this value to get the desired roundness
+        calendarSquare.layer.cornerRadius = 20
+        supportRequestSquare.layer.cornerRadius = 20
+        emergencyContactSquare.layer.cornerRadius = 20
+        medicationReminderSquare.clipsToBounds = true
+        calendarSquare.clipsToBounds = true
+        supportRequestSquare.clipsToBounds = true
+        emergencyContactSquare.clipsToBounds = true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+      super.viewWillAppear(animated)
+
+      //Dynamically display the title of the navigation title
+      self.navigationItem.title = "Profile"
+
     }
     
     private func configureView() {
@@ -66,5 +90,7 @@ class ElderDetailViewController: UIViewController {
         }
         task.resume()
     }
+    
+    
 }
 
