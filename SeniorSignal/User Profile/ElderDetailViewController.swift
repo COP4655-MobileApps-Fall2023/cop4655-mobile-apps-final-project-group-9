@@ -17,9 +17,25 @@ class ElderDetailViewController: UIViewController {
     @IBOutlet weak var ageLabel: UILabel!
     @IBOutlet weak var elderProfileImage: UIImageView!
     
+    @IBOutlet weak var medicationReminderSquare: UIView!
+    @IBOutlet weak var calendarSquare: UIView!
+    @IBOutlet weak var supportRequestSquare: UIView!
+    @IBOutlet weak var emergencyContactSquare: UIView!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
+        
+        medicationReminderSquare.layer.cornerRadius = 20 // Adjust this value to get the desired roundness
+        calendarSquare.layer.cornerRadius = 20
+        supportRequestSquare.layer.cornerRadius = 20
+        emergencyContactSquare.layer.cornerRadius = 20
+        medicationReminderSquare.clipsToBounds = true
+        calendarSquare.clipsToBounds = true
+        supportRequestSquare.clipsToBounds = true
+        emergencyContactSquare.clipsToBounds = true
     }
     
     private func configureView() {
@@ -66,5 +82,7 @@ class ElderDetailViewController: UIViewController {
         }
         task.resume()
     }
+    
+    
 }
 
