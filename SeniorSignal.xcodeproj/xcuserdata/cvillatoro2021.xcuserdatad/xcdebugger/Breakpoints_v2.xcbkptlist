@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "06869458-EEB8-4DF6-92DA-39A38ECE06A6"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D2E75849-659B-484C-B783-17F6297413DF"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SeniorSignal/Cells/ElderlyTableViewCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
+            landmarkName = "ElderlyTableViewCell"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "D2E75849-659B-484C-B783-17F6297413DF - 80cb25249df6f24f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SeniorSignal.ElderlyTableViewCell.elderNameLabel.getter : Swift.Optional&lt;__C.UILabel&gt;"
+                  moduleName = "SeniorSignal"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/cvillatoro2021/Desktop/SeniorSignal/SeniorSignal/Cells/ElderlyTableViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  uuid = "D2E75849-659B-484C-B783-17F6297413DF - aff8c90d245b5e73"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SeniorSignal.ElderlyTableViewCell.elderNameLabel.setter : Swift.Optional&lt;__C.UILabel&gt;"
+                  moduleName = "SeniorSignal"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/cvillatoro2021/Desktop/SeniorSignal/SeniorSignal/Cells/ElderlyTableViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "24">
+               </Location>
+               <Location
+                  uuid = "D2E75849-659B-484C-B783-17F6297413DF - 411560a529d75af9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SeniorSignal.ElderlyTableViewCell.elderNameLabel.modify : Swift.Optional&lt;__C.UILabel&gt;"
+                  moduleName = "SeniorSignal"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/cvillatoro2021/Desktop/SeniorSignal/SeniorSignal/Cells/ElderlyTableViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "D2E75849-659B-484C-B783-17F6297413DF - 9312bb8eeba71e7c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SeniorSignal.ElderlyTableViewCell.elderNameLabel.modify : Swift.Optional&lt;__C.UILabel&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "SeniorSignal"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/cvillatoro2021/Desktop/SeniorSignal/%3Ccompiler-generated%3E"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "28">
+               </Location>
+               <Location
+                  uuid = "D2E75849-659B-484C-B783-17F6297413DF - 40a3fed7dcfff612"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SeniorSignal.ElderlyTableViewCell.init(style: __C.UITableViewCellStyle, reuseIdentifier: Swift.Optional&lt;Swift.String&gt;) -&gt; SeniorSignal.ElderlyTableViewCell"
+                  moduleName = "SeniorSignal"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/cvillatoro2021/Desktop/SeniorSignal/SeniorSignal/Cells/ElderlyTableViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "124">
+               </Location>
+               <Location
+                  uuid = "D2E75849-659B-484C-B783-17F6297413DF - d04b75d0235448ee"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SeniorSignal.ElderlyTableViewCell.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;SeniorSignal.ElderlyTableViewCell&gt;"
+                  moduleName = "SeniorSignal"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/cvillatoro2021/Desktop/SeniorSignal/SeniorSignal/Cells/ElderlyTableViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "100">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
