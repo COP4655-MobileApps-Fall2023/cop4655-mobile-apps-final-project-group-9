@@ -13,6 +13,7 @@ struct User: ParseUser {
     var emailVerified: Bool?
     var name: String? // Example of a custom field
     var originalData: Data?
+    var profilePic: ParseFile?
 
     // Required by ParseUser
     var objectId: String?
@@ -56,5 +57,7 @@ extension User {
         case email = "email"
         case password = "password"
         case authData = "authData"
+        case profilePic = "profilePic"
+        
     }
 }
