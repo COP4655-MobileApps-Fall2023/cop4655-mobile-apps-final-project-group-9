@@ -38,6 +38,14 @@ class ElderDetailViewController: UIViewController {
         emergencyContactSquare.clipsToBounds = true
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+      super.viewWillAppear(animated)
+
+      //Dynamically display the title of the navigation title
+      self.navigationItem.title = "Profile"
+
+    }
+    
     private func configureView() {
         // Use the elderlyProfile to configure the view
         nameLabel.text = elderlyProfile?.elderName

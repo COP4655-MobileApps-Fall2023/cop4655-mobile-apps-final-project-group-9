@@ -61,6 +61,13 @@ class CreateElderViewController: UIViewController {
             }
         }
 }
+    override func viewWillAppear(_ animated: Bool) {
+      super.viewWillAppear(animated)
+
+      //Dynamically display the title of the navigation title
+      self.navigationItem.title = "Add User"
+
+    }
         
         // This function was previously defined outside of the class scope
         func navigateToHomeViewController() {
