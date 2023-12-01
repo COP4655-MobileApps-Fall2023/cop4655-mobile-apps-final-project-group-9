@@ -21,6 +21,8 @@ class CreateElderViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Additional setup after loading the view.
+        elderSave.tintColor = UIColor(
+            red: 255 / 255, green: 160 / 255, blue: 122 / 255, alpha: 1.0)
     }
     
     @IBAction func saveElderProfile(_ sender: UIButton) {
@@ -61,6 +63,13 @@ class CreateElderViewController: UIViewController {
             }
         }
 }
+    override func viewWillAppear(_ animated: Bool) {
+      super.viewWillAppear(animated)
+
+      //Dynamically display the title of the navigation title
+      self.navigationItem.title = "Add User"
+
+    }
         
         // This function was previously defined outside of the class scope
         func navigateToHomeViewController() {
