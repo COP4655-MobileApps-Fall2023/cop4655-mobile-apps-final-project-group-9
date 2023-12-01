@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		3A02EE2F2AFA7D29009A587F /* ElderProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A02EE2E2AFA7D29009A587F /* ElderProfileModel.swift */; };
+		3A2302012B1A774C00EA73C6 /* CalendarAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2302002B1A774C00EA73C6 /* CalendarAssistant.swift */; };
+		3A80A2722B1A667600107211 /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A80A2712B1A667600107211 /* CalendarCell.swift */; };
+		3A80A2762B1A694600107211 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A80A2752B1A694600107211 /* CalendarViewController.swift */; };
 		5BB0DE1E2B1406FA007875AC /* ElderlyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB0DE1D2B1406FA007875AC /* ElderlyTableViewCell.swift */; };
 		E53469AA2B001F070077B336 /* CreateElderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53469A92B001F070077B336 /* CreateElderViewController.swift */; };
 		E543E37B2B191FDF00AC89C3 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E543E37A2B191FDF00AC89C3 /* SettingsViewController.swift */; };
@@ -27,6 +30,9 @@
 
 /* Begin PBXFileReference section */
 		3A02EE2E2AFA7D29009A587F /* ElderProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElderProfileModel.swift; sourceTree = "<group>"; };
+		3A2302002B1A774C00EA73C6 /* CalendarAssistant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarAssistant.swift; sourceTree = "<group>"; };
+		3A80A2712B1A667600107211 /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
+		3A80A2752B1A694600107211 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		5BB0DE1D2B1406FA007875AC /* ElderlyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElderlyTableViewCell.swift; sourceTree = "<group>"; };
 		E53469A92B001F070077B336 /* CreateElderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateElderViewController.swift; sourceTree = "<group>"; };
 		E543E37A2B191FDF00AC89C3 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -61,6 +67,7 @@
 			isa = PBXGroup;
 			children = (
 				5BB0DE1D2B1406FA007875AC /* ElderlyTableViewCell.swift */,
+				3A80A2712B1A667600107211 /* CalendarCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -132,6 +139,8 @@
 				E5783B2C2AF6E8F5007F51BB /* HomeViewController.swift */,
 				E53469A92B001F070077B336 /* CreateElderViewController.swift */,
 				E5CA98BA2B0074C000F4088F /* ElderDetailViewController.swift */,
+				3A80A2752B1A694600107211 /* CalendarViewController.swift */,
+				3A2302002B1A774C00EA73C6 /* CalendarAssistant.swift */,
 			);
 			path = "User Profile";
 			sourceTree = "<group>";
@@ -213,6 +222,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A2302012B1A774C00EA73C6 /* CalendarAssistant.swift in Sources */,
 				E53469AA2B001F070077B336 /* CreateElderViewController.swift in Sources */,
 				3A02EE2F2AFA7D29009A587F /* ElderProfileModel.swift in Sources */,
 				E5783B2F2AF7137E007F51BB /* RegistrationViewController.swift in Sources */,
@@ -224,6 +234,8 @@
 				E5783B142AF6E64E007F51BB /* SceneDelegate.swift in Sources */,
 				E5783B2D2AF6E8F5007F51BB /* HomeViewController.swift in Sources */,
 				5BB0DE1E2B1406FA007875AC /* ElderlyTableViewCell.swift in Sources */,
+				3A80A2722B1A667600107211 /* CalendarCell.swift in Sources */,
+				3A80A2762B1A694600107211 /* CalendarViewController.swift in Sources */,
 				E543E37B2B191FDF00AC89C3 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
