@@ -13,20 +13,43 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
     @IBOutlet weak var caregiverName: UILabel!
     @IBOutlet weak var caregiverProfilePic: UIImageView!
     @IBOutlet weak var logoutButton: UIButton!
-    @IBOutlet weak var settingsTable: UITableView!
+    @IBOutlet weak var userUsername: UILabel!
+    @IBOutlet weak var userEmail: UILabel!
+    @IBOutlet weak var userDateCreated: UILabel!
+    @IBOutlet weak var infoView: UIView!
+    @IBOutlet weak var changePassView: UIView!
+    @IBOutlet weak var feedbackView: UIView!
+    @IBOutlet weak var supportView: UIView!
+    
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        loadUserData()
-        // Set the tint color for the loginButton
-            logoutButton.tintColor = UIColor(
-                red: 255 / 255, green: 160 / 255, blue: 122 / 255, alpha: 1.0
-            )
-    }
+            super.viewDidLoad()
+            loadUserData()
+        setupViewStyling()
+            // Set the tint color for the logoutButton
+            logoutButton.tintColor = UIColor(red: 255 / 255, green: 160 / 255, blue: 122 / 255, alpha: 1.0)
+        }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationItem.title = "Settings"
+    }
+    
+    private func setupViewStyling() {
+        // Set rounded corners for the views
+        let cornerRadius: CGFloat = 10.0 // You can adjust the corner radius value here
+        
+        infoView.layer.cornerRadius = cornerRadius
+        infoView.layer.masksToBounds = true // This is needed to clip the subviews
+        
+        changePassView.layer.cornerRadius = cornerRadius
+        changePassView.layer.masksToBounds = true
+        
+        feedbackView.layer.cornerRadius = cornerRadius
+        feedbackView.layer.masksToBounds = true
+        
+        supportView.layer.cornerRadius = cornerRadius
+        supportView.layer.masksToBounds = true
     }
     
     @IBAction func logoutButton(_ sender: Any) {
@@ -60,7 +83,18 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
                 self.caregiverProfilePic.layer.cornerRadius = self.caregiverProfilePic.frame.size.width / 2
                 self.caregiverProfilePic.clipsToBounds = true
             }
-            
+            DispatchQueue.main.async {
+                        self.userUsername.text = "Username: \(currentUser.username ?? "Unavailable")"
+                        self.userEmail.text = "Email: \(currentUser.email ?? "Unavailable")"
+                        if let dateCreated = currentUser.createdAt {
+                            let dateFormatter = DateFormatter()
+                            dateFormatter.dateStyle = .medium
+                            dateFormatter.timeStyle = .none
+                            self.userDateCreated.text = "Date Created: \(dateFormatter.string(from: dateCreated))"
+                        } else {
+                            self.userDateCreated.text = "Date Created: Unavailable"
+                        }
+                    }
             // If the profilePic is a ParseFile, fetch its data
             if let profilePic = currentUser.profilePic {
                 profilePic.fetch { result in
