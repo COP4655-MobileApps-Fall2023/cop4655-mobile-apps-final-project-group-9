@@ -10,6 +10,7 @@
 		3A02EE2F2AFA7D29009A587F /* ElderProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A02EE2E2AFA7D29009A587F /* ElderProfileModel.swift */; };
 		5BB0DE1E2B1406FA007875AC /* ElderlyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB0DE1D2B1406FA007875AC /* ElderlyTableViewCell.swift */; };
 		E53469AA2B001F070077B336 /* CreateElderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53469A92B001F070077B336 /* CreateElderViewController.swift */; };
+		E543E37B2B191FDF00AC89C3 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E543E37A2B191FDF00AC89C3 /* SettingsViewController.swift */; };
 		E5783B122AF6E64E007F51BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5783B112AF6E64E007F51BB /* AppDelegate.swift */; };
 		E5783B142AF6E64E007F51BB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5783B132AF6E64E007F51BB /* SceneDelegate.swift */; };
 		E5783B162AF6E64E007F51BB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5783B152AF6E64E007F51BB /* ViewController.swift */; };
@@ -28,6 +29,7 @@
 		3A02EE2E2AFA7D29009A587F /* ElderProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElderProfileModel.swift; sourceTree = "<group>"; };
 		5BB0DE1D2B1406FA007875AC /* ElderlyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElderlyTableViewCell.swift; sourceTree = "<group>"; };
 		E53469A92B001F070077B336 /* CreateElderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateElderViewController.swift; sourceTree = "<group>"; };
+		E543E37A2B191FDF00AC89C3 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		E5783B0E2AF6E64E007F51BB /* SeniorSignal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeniorSignal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5783B112AF6E64E007F51BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5783B132AF6E64E007F51BB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +65,14 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		E543E37C2B191FE900AC89C3 /* Tool Bar */ = {
+			isa = PBXGroup;
+			children = (
+				E543E37A2B191FDF00AC89C3 /* SettingsViewController.swift */,
+			);
+			path = "Tool Bar";
+			sourceTree = "<group>";
+		};
 		E5783B052AF6E64E007F51BB = {
 			isa = PBXGroup;
 			children = (
@@ -89,6 +99,7 @@
 				E5CA98BC2B016DC200F4088F /* Models */,
 				E5CA98BD2B016DEA00F4088F /* Login View Controllers */,
 				E5CA98BE2B03D21A00F4088F /* User Profile */,
+				E543E37C2B191FE900AC89C3 /* Tool Bar */,
 				E5783B1A2AF6E650007F51BB /* Assets.xcassets */,
 				E5783B1C2AF6E650007F51BB /* LaunchScreen.storyboard */,
 				E5783B1F2AF6E650007F51BB /* Info.plist */,
@@ -156,7 +167,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					E5783B0D2AF6E64E007F51BB = {
 						CreatedOnToolsVersion = 14.3.1;
@@ -213,6 +224,7 @@
 				E5783B142AF6E64E007F51BB /* SceneDelegate.swift in Sources */,
 				E5783B2D2AF6E8F5007F51BB /* HomeViewController.swift in Sources */,
 				5BB0DE1E2B1406FA007875AC /* ElderlyTableViewCell.swift in Sources */,
+				E543E37B2B191FDF00AC89C3 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,6 +286,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -334,6 +347,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;

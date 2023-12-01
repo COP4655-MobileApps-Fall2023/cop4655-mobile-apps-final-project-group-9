@@ -70,25 +70,41 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
 
     func loadUserData() {
-        // Check if there is a current logged-in user
         if let currentUser = User.current {
-            // Fetch the user's name and set it to the UILabel
             let userName = currentUser.name ?? "No Name"
             DispatchQueue.main.async {
                 self.caregiverName.text = userName
-                // Set the profile image to be rounded
                 self.caregiverProfilePic.contentMode = .scaleAspectFill
                 self.caregiverProfilePic.layer.cornerRadius = self.caregiverProfilePic.frame.size.width / 2
                 self.caregiverProfilePic.clipsToBounds = true
             }
             
-            // Directly load the image from the hardcoded URL
-            let profileImageURL = "https://parsefiles.back4app.com/DA4wP3xPiK0UrXj0S5TyVwTNfflmUaw7wbWydeS1/70072d2a56b723c0163f65ce39607f4c_young%20adult%20woman%20smiling.jpeg"
-            if let url = URL(string: profileImageURL) {
-                self.loadImage(from: url) { image in
-                    DispatchQueue.main.async {
-                        self.caregiverProfilePic.image = image ?? UIImage(named: "defaultProfileImage")
+            // If the profilePic is a ParseFile, fetch its data
+            if let profilePic = currentUser.profilePic {
+                profilePic.fetch { result in
+                    switch result {
+                    case .success(let fetchedFile):
+                        // If the file has a valid URL, download the image data
+                        if let url = fetchedFile.url {
+                            URLSession.shared.dataTask(with: url) { data, response, error in
+                                if let data = data {
+                                    let image = UIImage(data: data)
+                                    DispatchQueue.main.async {
+                                        self.caregiverProfilePic.image = image ?? UIImage(named: "defaultProfileImage")
+                                    }
+                                } else if let error = error {
+                                    print("Error downloading image: \(error)")
+                                }
+                            }.resume()
+                        }
+                    case .failure(let error):
+                        print("Error fetching ParseFile: \(error)")
                     }
+                }
+            } else {
+                // If no profile picture is set, use a default image
+                DispatchQueue.main.async {
+                    self.caregiverProfilePic.image = UIImage(named: "defaultProfileImage")
                 }
             }
         } else {
@@ -101,7 +117,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
 
     func fetchElderlyProfiles() {
-      // Replace 'Elderly' with the actual name of your elderly profile class
+      // elderly profile class
       let query = ElderProfile.query()
       query.find { result in
         switch result {
@@ -121,39 +137,45 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     // This function configures and provides a cell to display for a given row
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-      guard
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ElderlyCell", for: indexPath)
-          as? ElderlyTableViewCell
-      else {
-        fatalError("The dequeued cell is not an instance of ElderlyTableViewCell.")
-      }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ElderlyCell", for: indexPath) as? ElderlyTableViewCell else {
+            fatalError("The dequeued cell is not an instance of ElderlyTableViewCell.")
+        }
         
-      let profile = elderlyProfiles[indexPath.row]
-      cell.elderNameLabel.text = profile.elderName
-
-      // Cancel any existing image loading task
-      cell.imageLoadingTask?.cancel()
+        let profile = elderlyProfiles[indexPath.row]
+        cell.elderNameLabel.text = profile.elderName
         
-      // Start a new task to load the image
-      if let imageUrl = profile.elderPic?.url {
         // Set a placeholder image immediately
         cell.elderProfilePic.image = UIImage(named: "defaultPlaceholder")
-        cell.imageLoadingTask = loadImage(from: imageUrl) { image in
-          DispatchQueue.main.async {
-            // Check if the cell is still visible and corresponds to the current indexPath
-            if tableView.cellForRow(at: indexPath) == cell {
-              cell.elderProfilePic.image = image
-              cell.elderProfilePic.layer.cornerRadius = cell.elderProfilePic.frame.height / 2
-              cell.elderProfilePic.layer.masksToBounds = true
+        
+        // Load the elderPic if it is a ParseFile
+        if let elderPicFile = profile.elderPic {
+            elderPicFile.fetch { result in
+                switch result {
+                case .success(let fetchedFile):
+                    if let url = fetchedFile.url {
+                        URLSession.shared.dataTask(with: url) { data, response, error in
+                            if let data = data {
+                                let image = UIImage(data: data)
+                                DispatchQueue.main.async {
+                                    // Check if the cell is still visible and corresponds to the current indexPath
+                                    if tableView.cellForRow(at: indexPath) == cell {
+                                        cell.elderProfilePic.image = image
+                                        cell.elderProfilePic.layer.cornerRadius = cell.elderProfilePic.frame.height / 2
+                                        cell.elderProfilePic.layer.masksToBounds = true
+                                    }
+                                }
+                            } else if let error = error {
+                                print("Error downloading image: \(error)")
+                            }
+                        }.resume()
+                    }
+                case .failure(let error):
+                    print("Error fetching ParseFile: \(error)")
+                }
             }
-          }
         }
-      } else {
-        // Here you might set a default placeholder image if there's no URL
-        cell.elderProfilePic.image = UIImage(named: "defaultPlaceholder")
-      }
-
-      return cell
+        
+        return cell
     }
 
     func loadImage(from url: URL, completion: @escaping (UIImage?) -> Void) -> URLSessionDataTask {
@@ -178,38 +200,5 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
       }
     }
 
-    @IBAction func logoutButton(_ sender: Any) {
-      User.logout { (result: Result<Void, ParseError>) in
-        DispatchQueue.main.async {
-          switch result {
-          case .success:
-            print("User logged out successfully")
-            self.navigateToLogin()
-          case .failure(let error):
-            print("Logout failed: \(error.localizedDescription)")
-          // Present an error message to the user
-          }
-        }
-      }
-    }
-
-    func navigateToLogin() {
-      // Assuming that 'LoginNavController' is the storyboard ID for your login navigation controller
-      let storyboard = UIStoryboard(name: "Main", bundle: nil)
-      if let loginNavController = storyboard.instantiateViewController(
-        withIdentifier: "LoginNavController") as? UINavigationController
-      {
-        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-          let window = windowScene.windows.first
-        {
-          // Here you set the rootViewController to the login navigation controller
-          window.rootViewController = loginNavController
-          window.makeKeyAndVisible()
-          UIView.transition(
-            with: window, duration: 0.3, options: .transitionCrossDissolve, animations: {},
-            completion: nil)
-        }
-      }
-    }
   }
 

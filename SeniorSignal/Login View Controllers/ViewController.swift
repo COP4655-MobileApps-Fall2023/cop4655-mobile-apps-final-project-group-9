@@ -11,6 +11,7 @@ import ParseSwift
 class ViewController: UIViewController {
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var loginButton: UIButton!
     
     // Add a property for the password visibility button
     private var passwordVisibilityButton: UIButton!
@@ -18,6 +19,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupPasswordVisibilityToggle()
+        loginButton.tintColor = UIColor(
+                red: 255 / 255, green: 160 / 255, blue: 122 / 255, alpha: 1.0)
     }
 
     private func setupPasswordVisibilityToggle() {
