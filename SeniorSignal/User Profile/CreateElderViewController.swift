@@ -8,8 +8,7 @@
 import UIKit
 import ParseSwift
 
-
-class CreateElderViewController: UIViewController {
+class CreateElderViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet weak var elderName: UITextField!
     @IBOutlet weak var elderAge: UITextField!
     @IBOutlet weak var elderPhone: UITextField!
@@ -17,16 +16,22 @@ class CreateElderViewController: UIViewController {
     @IBOutlet weak var ecPhone: UITextField!
     @IBOutlet weak var ecRelationship: UITextField!
     @IBOutlet weak var elderSave: UIButton!
+    @IBOutlet weak var elderPic: UIImageView!
+    @IBOutlet weak var elderPicUpload: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Additional setup after loading the view.
-        elderSave.tintColor = UIColor(
-            red: 255 / 255, green: 160 / 255, blue: 122 / 255, alpha: 1.0)
+        elderSave.tintColor = UIColor(red: 255 / 255, green: 160 / 255, blue: 122 / 255, alpha: 1.0)
+    }
+    
+    @IBAction func elderPicUploadTapped(_ sender: UIButton) {
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        imagePickerController.sourceType = .photoLibrary
+        present(imagePickerController, animated: true)
     }
     
     @IBAction func saveElderProfile(_ sender: UIButton) {
-        // Input validation
         guard
             let elderNameText = elderName.text, !elderNameText.isEmpty,
             let elderAgeText = elderAge.text, !elderAgeText.isEmpty,
@@ -36,60 +41,83 @@ class CreateElderViewController: UIViewController {
             let ecRelationshipText = ecRelationship.text, !ecRelationshipText.isEmpty,
             let currentUser = User.current, // Ensure currentUser is not nil
             let currentUserId = currentUser.objectId else {
-            presentAlert(title: "Save Failed", message: "Please make sure all fields are filled.")
-            return
+                presentAlert(title: "Save Failed", message: "Please make sure all fields are filled.")
+                return
         }
         
-        // Create a new ElderProfileProfile object
-        var ElderProfile = ElderProfile()
-        ElderProfile.elderName = elderNameText
-        ElderProfile.elderAge = elderAgeText
-        ElderProfile.elderPhone = elderPhoneText
-        ElderProfile.ecName = ecNameText
-        ElderProfile.ecPhone = ecPhoneText
-        ElderProfile.ecRelationship = ecRelationshipText
-        ElderProfile.caretaker = Pointer<User>(objectId: currentUserId)
+        var elderProfile = ElderProfile()
+        elderProfile.elderName = elderNameText
+        elderProfile.elderAge = elderAgeText
+        elderProfile.elderPhone = elderPhoneText
+        elderProfile.ecName = ecNameText
+        elderProfile.ecPhone = ecPhoneText
+        elderProfile.ecRelationship = ecRelationshipText
+        elderProfile.caretaker = Pointer<User>(objectId: currentUserId)
         
-        // Save the new ElderProfileProfile to the database
-        ElderProfile.save { result in
+        if let image = elderPic.image, let imageData = image.jpegData(compressionQuality: 0.5) {
+            let file = ParseFile(data: imageData)
+            file.save { result in
+                switch result {
+                case .success(let savedFile):
+                    elderProfile.elderPic = savedFile
+                    self.saveElderProfileToServer(elderProfile)
+                case .failure(let error):
+                    self.presentAlert(title: "Image Upload Failed", message: error.localizedDescription)
+                }
+            }
+        } else {
+            saveElderProfileToServer(elderProfile)
+        }
+    }
+    
+    func saveElderProfileToServer(_ profile: ElderProfile) {
+        profile.save { result in
             DispatchQueue.main.async {
                 switch result {
-                case .success(let savedElderProfile):
-                    print("ElderProfile profile saved successfully with name: \(String(describing: savedElderProfile.elderName))")
+                case .success(let savedProfile):
+                    print("Elder profile saved successfully with object id: \(savedProfile.objectId ?? "")")
                     self.navigateToHomeViewController()
                 case .failure(let error):
                     self.presentAlert(title: "Save Error", message: error.localizedDescription)
                 }
             }
         }
-}
-    override func viewWillAppear(_ animated: Bool) {
-      super.viewWillAppear(animated)
-
-      //Dynamically display the title of the navigation title
-      self.navigationItem.title = "Add User"
-
     }
-        
-        // This function was previously defined outside of the class scope
-        func navigateToHomeViewController() {
-                // Ensure the storyboard identifier matches your storyboard ID for the HomeViewController
-                guard let homeVC = storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController else {
-                    presentAlert(title: "Error", message: "HomeViewController could not be instantiated.")
-                    return
-                }
-                // Navigate to the HomeViewController
-                if let navigationController = self.navigationController {
-                    navigationController.setViewControllers([homeVC], animated: true)
-                } else {
-                    present(homeVC, animated: true, completion: nil)
-                }
-            }
-        
-        // This function was previously defined outside of the class scope
-        func presentAlert(title: String, message: String) {
-            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            self.present(alert, animated: true)
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationItem.title = "Add User"
+    }
+    
+    func navigateToHomeViewController() {
+        guard let homeVC = storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController else {
+            presentAlert(title: "Error", message: "HomeViewController could not be instantiated.")
+            return
+        }
+        if let navigationController = self.navigationController {
+            navigationController.setViewControllers([homeVC], animated: true)
+        } else {
+            present(homeVC, animated: true, completion: nil)
         }
     }
+    
+    func presentAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true)
+    }
+    
+    // MARK: - UIImagePickerControllerDelegate Methods
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            elderPic.image = selectedImage
+        }
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+}
+
+
