@@ -75,6 +75,8 @@
 		E543E37C2B191FE900AC89C3 /* Tool Bar */ = {
 			isa = PBXGroup;
 			children = (
+				3A80A2752B1A694600107211 /* CalendarViewController.swift */,
+				3A2302002B1A774C00EA73C6 /* CalendarAssistant.swift */,
 				E543E37A2B191FDF00AC89C3 /* SettingsViewController.swift */,
 			);
 			path = "Tool Bar";
@@ -139,8 +141,6 @@
 				E5783B2C2AF6E8F5007F51BB /* HomeViewController.swift */,
 				E53469A92B001F070077B336 /* CreateElderViewController.swift */,
 				E5CA98BA2B0074C000F4088F /* ElderDetailViewController.swift */,
-				3A80A2752B1A694600107211 /* CalendarViewController.swift */,
-				3A2302002B1A774C00EA73C6 /* CalendarAssistant.swift */,
 			);
 			path = "User Profile";
 			sourceTree = "<group>";

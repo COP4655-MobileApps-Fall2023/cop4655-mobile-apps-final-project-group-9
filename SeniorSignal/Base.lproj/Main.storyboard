@@ -328,52 +328,12 @@
             <objects>
                 <viewController storyboardIdentifier="CreateElderViewController" id="RFB-4k-2z8" customClass="CreateElderViewController" customModule="SeniorSignal" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dyF-Xp-IaS">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="666"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="749"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="oBL-ha-xlX">
-                                <rect key="frame" x="96" y="196" width="201" height="344"/>
-                                <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Full Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b6C-5d-lJE" userLabel="elderName">
-                                        <rect key="frame" x="0.0" y="0.0" width="201" height="34"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Age" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="paC-aO-1hx" userLabel="elderAge">
-                                        <rect key="frame" x="0.0" y="62" width="201" height="34"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IoI-tW-u1G" userLabel="elderPhone">
-                                        <rect key="frame" x="0.0" y="124" width="201" height="34"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Emergency Contact Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="crY-xB-lsj" userLabel="ecName">
-                                        <rect key="frame" x="0.0" y="186" width="201" height="34"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Emergency Contact Phone" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mrd-cH-HT3" userLabel="ecPhone">
-                                        <rect key="frame" x="0.0" y="248" width="201" height="34"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contact Relationship" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ywi-gP-y7z" userLabel="ecRelationship">
-                                        <rect key="frame" x="0.0" y="310" width="201" height="34"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                </subviews>
-                            </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ezt-ce-c8j">
-                                <rect key="frame" x="144" y="571" width="105" height="34.333333333333314"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ezt-ce-c8j">
+                                <rect key="frame" x="144" y="610" width="105" height="34.333333333333314"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="1" green="0.62745098040000002" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Save Elder">
@@ -383,19 +343,68 @@
                                     <action selector="saveElderProfile:" destination="RFB-4k-2z8" eventType="touchUpInside" id="TCt-jx-Bh2"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tms-5a-ft0" userLabel="Caregiver Profile Pic">
+                                <rect key="frame" x="156" y="62" width="80" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lpw-nN-QJw">
+                                <rect key="frame" x="130" y="151" width="133" height="34.333333333333485"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Change Photo"/>
+                                <connections>
+                                    <action selector="elderPicUploadTapped:" destination="RFB-4k-2z8" eventType="touchUpInside" id="bY8-Eu-ivN"/>
+                                    <action selector="uploadPhotoButton:" destination="Bg7-HZ-JpP" eventType="touchUpInside" id="nXS-hc-KMF"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Age" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="paC-aO-1hx" userLabel="elderAge">
+                                <rect key="frame" x="96" y="309" width="200.33333333333348" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IoI-tW-u1G" userLabel="elderPhone">
+                                <rect key="frame" x="96" y="365" width="200.33333333333348" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Emergency Contact Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="crY-xB-lsj" userLabel="ecName">
+                                <rect key="frame" x="96" y="412" width="200.33333333333348" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Emergency Contact Phone" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mrd-cH-HT3" userLabel="ecPhone">
+                                <rect key="frame" x="96" y="465" width="200.33333333333348" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contact Relationship" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ywi-gP-y7z" userLabel="ecRelationship">
+                                <rect key="frame" x="96" y="518" width="200.33333333333348" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Full Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b6C-5d-lJE" userLabel="elderName">
+                                <rect key="frame" x="96" y="257" width="200.33333333333348" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="st9-0E-mLE"/>
                         <color key="backgroundColor" red="1" green="1" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="oBL-ha-xlX" firstAttribute="leading" secondItem="st9-0E-mLE" secondAttribute="leading" constant="96" id="2Op-6k-Rbc"/>
-                            <constraint firstItem="st9-0E-mLE" firstAttribute="trailing" secondItem="ezt-ce-c8j" secondAttribute="trailing" constant="147" id="E0i-Jc-eM1"/>
-                            <constraint firstItem="oBL-ha-xlX" firstAttribute="centerX" secondItem="dyF-Xp-IaS" secondAttribute="centerX" id="i8h-IB-7py"/>
-                            <constraint firstItem="oBL-ha-xlX" firstAttribute="top" secondItem="st9-0E-mLE" secondAttribute="top" constant="127" id="m8d-fw-KE3"/>
-                            <constraint firstItem="ezt-ce-c8j" firstAttribute="top" secondItem="oBL-ha-xlX" secondAttribute="bottom" constant="35" id="r54-zx-cry"/>
-                            <constraint firstItem="ezt-ce-c8j" firstAttribute="leading" secondItem="st9-0E-mLE" secondAttribute="leading" constant="141" id="z8K-F6-3SZ"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="xqM-kV-xMr"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="ecName" destination="crY-xB-lsj" id="UPQ-uJ-ad2"/>
                         <outlet property="ecPhone" destination="mrd-cH-HT3" id="msy-3E-KqF"/>
@@ -403,6 +412,8 @@
                         <outlet property="elderAge" destination="paC-aO-1hx" id="zhn-bX-nov"/>
                         <outlet property="elderName" destination="b6C-5d-lJE" id="eKt-FI-5fu"/>
                         <outlet property="elderPhone" destination="IoI-tW-u1G" id="0fm-Zz-F5m"/>
+                        <outlet property="elderPic" destination="Tms-5a-ft0" id="YCi-Qh-yJ1"/>
+                        <outlet property="elderPicUpload" destination="lpw-nN-QJw" id="jWp-hq-Fh8"/>
                         <outlet property="elderSave" destination="ezt-ce-c8j" id="pRP-IG-YJJ"/>
                     </connections>
                 </viewController>
@@ -1028,8 +1039,8 @@
         <image name="arrowshape.left.fill" catalog="system" width="128" height="104"/>
         <image name="arrowshape.right.fill" catalog="system" width="128" height="104"/>
         <image name="bell" catalog="system" width="125" height="128"/>
-        <image name="calendar" catalog="system" width="128" height="107"/>
         <image name="calendar" width="128" height="128"/>
+        <image name="calendar" catalog="system" width="128" height="107"/>
         <image name="elderly" width="128" height="128"/>
         <image name="elderly 2" width="128" height="128"/>
         <image name="emergency-contact" width="128" height="128"/>

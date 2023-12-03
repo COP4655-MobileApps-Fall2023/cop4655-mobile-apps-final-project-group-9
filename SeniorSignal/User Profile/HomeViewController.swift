@@ -42,12 +42,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         addButton.selectedImage = addButton.image?.withRenderingMode(.alwaysOriginal)
         addButton.image = addButton.image?.withRenderingMode(.alwaysOriginal)
       }
-
-      //        let testImage = UIImage(named: "young adult woman smiling") // Replace with an image that you have in your assets
-      //        caregiverProfilePic.image = testImage
-      //        caregiverProfilePic.layer.cornerRadius = caregiverProfilePic.frame.size.width / 2
-      //        caregiverProfilePic.clipsToBounds = true
-
     }
 
     override func viewWillAppear(_ animated: Bool) {
