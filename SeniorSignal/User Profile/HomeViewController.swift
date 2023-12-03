@@ -111,19 +111,30 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
 
     func fetchElderlyProfiles() {
-      // elderly profile class
-      let query = ElderProfile.query()
-      query.find { result in
-        switch result {
-        case .success(let profiles):
-          self.elderlyProfiles = profiles
-          self.tableView.reloadData()
-        case .failure(let error):
-          print("Error fetching elderly profiles: \(error.localizedDescription)")
+        // Ensure that there is a logged-in user
+        guard let currentUser = User.current, let currentUserId = currentUser.objectId else {
+            print("No current user found")
+            return
         }
-      }
+        
+        // Create a query for ElderProfile where the caretaker is the current user
+        let query = ElderProfile.query("caretaker" == Pointer<User>(objectId: currentUserId))
+        
+        query.find { result in
+            switch result {
+            case .success(let profiles):
+                // Assign the fetched profiles to the local array
+                // This will only include profiles where the current user is the caretaker
+                self.elderlyProfiles = profiles
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            case .failure(let error):
+                print("Error fetching elderly profiles: \(error.localizedDescription)")
+            }
+        }
     }
-
+    
     // This function is used to tell the table view how many rows to display
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
       return elderlyProfiles.count
