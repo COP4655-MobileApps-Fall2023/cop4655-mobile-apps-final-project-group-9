@@ -13,6 +13,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     
+    @IBOutlet weak var appTitle: UILabel!
+    @IBOutlet weak var accountPromptLabel: UILabel!
+    
     // Add a property for the password visibility button
     private var passwordVisibilityButton: UIButton!
 
@@ -21,6 +24,26 @@ class ViewController: UIViewController {
         setupPasswordVisibilityToggle()
         loginButton.tintColor = UIColor(
                 red: 255 / 255, green: 160 / 255, blue: 122 / 255, alpha: 1.0)
+        
+        //Setup UI elements
+        setupTextFields()
+        addKeyboardDismissToolbar()
+        
+        accountPromptLabel.textColor = .black // Or any other color that is visible on your background
+        accountPromptLabel.text = "Don't have an account?"
+        
+        // Set the borderStyle property to .roundedRect to add a default border
+        username.borderStyle = .roundedRect
+        password.borderStyle = .roundedRect
+
+        // Or if you want a custom border
+        username.layer.borderColor = UIColor.darkGray.cgColor // Choose a suitable color
+        username.layer.borderWidth = 1.0
+        username.layer.cornerRadius = 5.0 // Adjust the corner radius as needed
+
+        password.layer.borderColor = UIColor.darkGray.cgColor // Choose a suitable color
+        password.layer.borderWidth = 1.0
+        password.layer.cornerRadius = 5.0 // Adjust the corner radius as needed
     }
 
     private func setupPasswordVisibilityToggle() {
@@ -63,7 +86,30 @@ class ViewController: UIViewController {
         // Toggle the selected state of the button, which will change the image
         passwordVisibilityButton.isSelected.toggle()
     }
+    
+    private func setupTextFields() {
+        // Set dark text for placeholders
+        username.attributedPlaceholder = NSAttributedString(string: "Username",
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor.darkGray])
+        password.attributedPlaceholder = NSAttributedString(string: "Password",
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor.darkGray])
+    }
+    
+    private func addKeyboardDismissToolbar() {
+        // Add toolbar with 'Done' button to dismiss the keyboard
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissKeyboard))
 
+        toolbar.setItems([flexibleSpace, doneButton], animated: false)
+        username.inputAccessoryView = toolbar
+        password.inputAccessoryView = toolbar
+    }
+
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -128,6 +174,7 @@ class ViewController: UIViewController {
             showAlert(title: "Error", message: "Navigation controller could not be instantiated.")
         }
     }
+    
 }
 
 

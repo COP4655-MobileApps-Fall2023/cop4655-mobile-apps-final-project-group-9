@@ -67,6 +67,13 @@
                                 <rect key="frame" x="145" y="159" width="104" height="88"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Don't have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IWo-Sf-p9n">
+                                <rect key="frame" x="123" y="525" width="126" height="14"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L4f-Wn-uYW">
                                 <rect key="frame" x="236" y="525" width="67" height="13"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -78,19 +85,14 @@
                                     <segue destination="rD0-hw-5du" kind="show" id="xsT-ZF-lbp"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Don't have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IWo-Sf-p9n">
-                                <rect key="frame" x="123" y="525" width="124" height="14"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="1" green="1" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="YdM-hs-k3a"/>
                     <connections>
+                        <outlet property="accountPromptLabel" destination="IWo-Sf-p9n" id="afO-4f-HUi"/>
+                        <outlet property="appTitle" destination="wAH-h9-v5d" id="Jah-fg-MCc"/>
                         <outlet property="loginButton" destination="dZX-ge-Vcb" id="wEG-zZ-A98"/>
                         <outlet property="password" destination="2PI-Vs-hwY" id="vOx-dJ-fOV"/>
                         <outlet property="username" destination="rWc-sw-9xw" id="7cG-AR-RJn"/>
@@ -1065,8 +1067,8 @@
         <image name="arrowshape.left.fill" catalog="system" width="128" height="104"/>
         <image name="arrowshape.right.fill" catalog="system" width="128" height="104"/>
         <image name="bell" catalog="system" width="125" height="128"/>
-        <image name="calendar" width="128" height="128"/>
         <image name="calendar" catalog="system" width="128" height="107"/>
+        <image name="calendar" width="128" height="128"/>
         <image name="elderly" width="128" height="128"/>
         <image name="elderly 2" width="128" height="128"/>
         <image name="emergency-contact" width="128" height="128"/>
