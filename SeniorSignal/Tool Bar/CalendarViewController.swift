@@ -21,6 +21,11 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
         setMonthView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationItem.title = "Calender"
+    }
+    
     // Functions for UICollectionViewDelegate/DataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         totalSquares.count

@@ -12,6 +12,7 @@
 		3A80A2722B1A667600107211 /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A80A2712B1A667600107211 /* CalendarCell.swift */; };
 		3A80A2762B1A694600107211 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A80A2752B1A694600107211 /* CalendarViewController.swift */; };
 		5BB0DE1E2B1406FA007875AC /* ElderlyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB0DE1D2B1406FA007875AC /* ElderlyTableViewCell.swift */; };
+		E51EDED12B1F93C60043A459 /* AlertsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51EDED02B1F93C60043A459 /* AlertsViewController.swift */; };
 		E53469AA2B001F070077B336 /* CreateElderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53469A92B001F070077B336 /* CreateElderViewController.swift */; };
 		E543E37B2B191FDF00AC89C3 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E543E37A2B191FDF00AC89C3 /* SettingsViewController.swift */; };
 		E5783B122AF6E64E007F51BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5783B112AF6E64E007F51BB /* AppDelegate.swift */; };
@@ -34,6 +35,7 @@
 		3A80A2712B1A667600107211 /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
 		3A80A2752B1A694600107211 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		5BB0DE1D2B1406FA007875AC /* ElderlyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElderlyTableViewCell.swift; sourceTree = "<group>"; };
+		E51EDED02B1F93C60043A459 /* AlertsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertsViewController.swift; sourceTree = "<group>"; };
 		E53469A92B001F070077B336 /* CreateElderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateElderViewController.swift; sourceTree = "<group>"; };
 		E543E37A2B191FDF00AC89C3 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		E5783B0E2AF6E64E007F51BB /* SeniorSignal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeniorSignal.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,6 +79,7 @@
 			children = (
 				3A80A2752B1A694600107211 /* CalendarViewController.swift */,
 				3A2302002B1A774C00EA73C6 /* CalendarAssistant.swift */,
+				E51EDED02B1F93C60043A459 /* AlertsViewController.swift */,
 				E543E37A2B191FDF00AC89C3 /* SettingsViewController.swift */,
 			);
 			path = "Tool Bar";
@@ -237,6 +240,7 @@
 				3A80A2722B1A667600107211 /* CalendarCell.swift in Sources */,
 				3A80A2762B1A694600107211 /* CalendarViewController.swift in Sources */,
 				E543E37B2B191FDF00AC89C3 /* SettingsViewController.swift in Sources */,
+				E51EDED12B1F93C60043A459 /* AlertsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -385,7 +389,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = XWB3L2SZJS;
+				DEVELOPMENT_TEAM = 8KQ89Q9CGK;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SeniorSignal/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -413,7 +417,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = XWB3L2SZJS;
+				DEVELOPMENT_TEAM = 8KQ89Q9CGK;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SeniorSignal/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
