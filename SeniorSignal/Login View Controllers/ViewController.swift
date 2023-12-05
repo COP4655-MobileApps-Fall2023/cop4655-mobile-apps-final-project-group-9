@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     
-    @IBOutlet weak var appTitle: UILabel!
+
     @IBOutlet weak var accountPromptLabel: UILabel!
     
     // Add a property for the password visibility button
@@ -44,6 +44,25 @@ class ViewController: UIViewController {
         password.layer.borderColor = UIColor.darkGray.cgColor // Choose a suitable color
         password.layer.borderWidth = 1.0
         password.layer.cornerRadius = 5.0 // Adjust the corner radius as needed
+        let titleLabel = UILabel()
+        titleLabel.text = "SeniorSignal"
+        titleLabel.textColor = .black // Make sure the color is visible on the background
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 30) // Use a bold font for better visibility
+        titleLabel.textAlignment = .center
+
+        // Layout the label using Auto Layout
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(titleLabel)
+
+        NSLayoutConstraint.activate([
+            titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            titleLabel.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 100) // Adjust the constant as needed
+            
+        ])
+        // Set up the text fields
+        username.textColor = .black
+        password.textColor = .black
+        
     }
 
     private func setupPasswordVisibilityToggle() {
@@ -77,6 +96,7 @@ class ViewController: UIViewController {
         // Set the images for different button states
         passwordVisibilityButton.setImage(normalImage, for: .normal)
         passwordVisibilityButton.setImage(selectedImage, for: .selected)
+        
     }
 
     @objc private func togglePasswordVisibility() {
