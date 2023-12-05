@@ -25,6 +25,14 @@ class RegistrationViewController: UIViewController {
         setupPasswordVisibilityToggle()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+      super.viewWillAppear(animated)
+        
+      //Dynamically display the title of the navigation title
+      self.navigationItem.title = "Register"
+        
+    }
+    
     @IBAction func registerButton(_ sender: UIButton) {
         if User.current != nil {
             // Log out the current user

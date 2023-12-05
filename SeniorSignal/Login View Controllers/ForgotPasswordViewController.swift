@@ -15,4 +15,12 @@ class ForgotPasswordViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+      super.viewWillAppear(animated)
+        
+      //Dynamically display the title of the navigation title
+      self.navigationItem.title = "Forgot Password"
+        
+    }
 }
