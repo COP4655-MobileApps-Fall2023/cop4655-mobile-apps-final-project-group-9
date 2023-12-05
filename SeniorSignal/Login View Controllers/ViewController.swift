@@ -29,9 +29,6 @@ class ViewController: UIViewController {
         setupTextFields()
         addKeyboardDismissToolbar()
         
-        accountPromptLabel.textColor = .black // Or any other color that is visible on your background
-        accountPromptLabel.text = "Don't have an account?"
-        
         // Set the borderStyle property to .roundedRect to add a default border
         username.borderStyle = .roundedRect
         password.borderStyle = .roundedRect
@@ -44,24 +41,6 @@ class ViewController: UIViewController {
         password.layer.borderColor = UIColor.darkGray.cgColor // Choose a suitable color
         password.layer.borderWidth = 1.0
         password.layer.cornerRadius = 5.0 // Adjust the corner radius as needed
-        let titleLabel = UILabel()
-        titleLabel.text = "SeniorSignal"
-        titleLabel.textColor = .black // Make sure the color is visible on the background
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 30) // Use a bold font for better visibility
-        titleLabel.textAlignment = .center
-
-        // Layout the label using Auto Layout
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(titleLabel)
-
-        NSLayoutConstraint.activate([
-            titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            titleLabel.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 100) // Adjust the constant as needed
-            
-        ])
-        // Set up the text fields
-        username.textColor = .black
-        password.textColor = .black
         
     }
 
