@@ -8,7 +8,7 @@
 import UIKit
 import ParseSwift
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var loginButton: UIButton!
@@ -25,9 +25,9 @@ class ViewController: UIViewController {
         loginButton.tintColor = UIColor(
                 red: 255 / 255, green: 160 / 255, blue: 122 / 255, alpha: 1.0)
         
-        //Setup UI elements
-        setupTextFields()
-        addKeyboardDismissToolbar()
+        // Set the delegate for your text fields
+        username.delegate = self
+        password.delegate = self
         
         accountPromptLabel.textColor = .black // Or any other color that is visible on your background
         accountPromptLabel.text = "Don't have an account?"
@@ -44,6 +44,7 @@ class ViewController: UIViewController {
         password.layer.borderColor = UIColor.darkGray.cgColor // Choose a suitable color
         password.layer.borderWidth = 1.0
         password.layer.cornerRadius = 5.0 // Adjust the corner radius as needed
+        
         let titleLabel = UILabel()
         titleLabel.text = "SeniorSignal"
         titleLabel.textColor = .black // Make sure the color is visible on the background
@@ -59,11 +60,12 @@ class ViewController: UIViewController {
             titleLabel.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 100) // Adjust the constant as needed
             
         ])
+        
         // Set up the text fields
         username.textColor = .black
         password.textColor = .black
-        
     }
+
 
     private func setupPasswordVisibilityToggle() {
         // Ensure the button is created with a custom type to be able to customize it fully
@@ -115,6 +117,40 @@ class ViewController: UIViewController {
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.darkGray])
     }
     
+    // Update the textFieldShouldReturn method to trigger login action when "Return" is pressed on the password field
+        func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+            if textField == username {
+                password.becomeFirstResponder()
+            } else if textField == password {
+                // Attempt to log in when "Return" is pressed on the password field
+                loginButtonTapped(loginButton)
+            }
+            return true
+        }
+
+        @IBAction func loginButtonTapped(_ sender: UIButton) {
+            // Perform login action
+            // Ensure the text fields are not empty
+            guard let usernameText = username.text, !usernameText.isEmpty,
+                  let passwordText = password.text, !passwordText.isEmpty else {
+                showMissingFieldsAlert()
+                return
+            }
+            
+            // Attempt to log in the user
+            User.login(username: usernameText, password: passwordText) { [weak self] result in
+                DispatchQueue.main.async {
+                    switch result {
+                    case .success(let user):
+                        print("✅ Successfully logged in as user: \(user)")
+                        self?.navigateToHome()
+                    case .failure(let error):
+                        self?.showAlert(title: "Login Error", message: error.localizedDescription)
+                    }
+                }
+            }
+        }
+
     private func addKeyboardDismissToolbar() {
         // Add toolbar with 'Done' button to dismiss the keyboard
         let toolbar = UIToolbar()
