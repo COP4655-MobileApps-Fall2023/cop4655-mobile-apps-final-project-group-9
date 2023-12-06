@@ -9,11 +9,15 @@ import UIKit
 import ParseSwift
 
 class RegistrationViewController: UIViewController {
+    
+    
     @IBOutlet weak var name: UITextField!
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var confirmPass: UITextField!
+    
+    @IBOutlet weak var scrollView: UIScrollView!
     
     // Add two properties for the password visibility buttons
     private var passwordVisibilityButton: UIButton!
@@ -23,7 +27,72 @@ class RegistrationViewController: UIViewController {
         super.viewDidLoad()
         // Setup password visibility toggle for both password fields
         setupPasswordVisibilityToggle()
+        setupTextFields()
+        addDoneButtonToKeyboard()
+        
+        name.borderStyle = .roundedRect
+        email.borderStyle = .roundedRect
+        username.borderStyle = .roundedRect
+        password.borderStyle = .roundedRect
+        confirmPass.borderStyle = .roundedRect
+
+        // Or if you want a custom border
+        name.layer.borderColor = UIColor.darkGray.cgColor // Choose a suitable color
+        name.layer.borderWidth = 1.0
+        name.layer.cornerRadius = 5.0 // Adjust the corner radius as needed
+
+        email.layer.borderColor = UIColor.darkGray.cgColor // Choose a suitable color
+        email.layer.borderWidth = 1.0
+        email.layer.cornerRadius = 5.0 // Adjust the corner radius as needed
+        
+        username.layer.borderColor = UIColor.darkGray.cgColor // Choose a suitable color
+        username.layer.borderWidth = 1.0
+        username.layer.cornerRadius = 5.0 // Adjust the corner radius as needed
+        
+        password.layer.borderColor = UIColor.darkGray.cgColor // Choose a suitable color
+        password.layer.borderWidth = 1.0
+        password.layer.cornerRadius = 5.0 // Adjust the corner radius as needed
+        
+        confirmPass.layer.borderColor = UIColor.darkGray.cgColor // Choose a suitable color
+        confirmPass.layer.borderWidth = 1.0
+        confirmPass.layer.cornerRadius = 5.0 // Adjust the corner radius as needed
     }
+    
+    private func setupTextFields() {
+        // Set dark text for placeholders
+        email.attributedPlaceholder = NSAttributedString(string: "Email", attributes: [NSAttributedString.Key.foregroundColor: UIColor.darkGray])
+        name.attributedPlaceholder = NSAttributedString(string: "Name", attributes: [NSAttributedString.Key.foregroundColor: UIColor.darkGray])
+        username.attributedPlaceholder = NSAttributedString(string: "Username", attributes: [NSAttributedString.Key.foregroundColor: UIColor.darkGray])
+        password.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSAttributedString.Key.foregroundColor: UIColor.darkGray])
+        confirmPass.attributedPlaceholder = NSAttributedString(string: "Confirm Password", attributes: [NSAttributedString.Key.foregroundColor: UIColor.darkGray])
+        
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black]
+    }
+    
+    func addDoneButtonToKeyboard() {
+        let doneToolbar: UIToolbar = UIToolbar(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))
+        doneToolbar.barStyle = .default
+        
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let done: UIBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(self.doneButtonAction))
+        
+        let items = [flexSpace, done]
+        doneToolbar.items = items
+        doneToolbar.sizeToFit()
+        
+        // Add the toolbar as an input accessory view to all text fields
+        name.inputAccessoryView = doneToolbar
+        email.inputAccessoryView = doneToolbar
+        username.inputAccessoryView = doneToolbar
+        password.inputAccessoryView = doneToolbar
+        confirmPass.inputAccessoryView = doneToolbar
+    }
+
+    @objc func doneButtonAction() {
+        // Dismiss the keyboard when the "Done" button is tapped
+        view.endEditing(true)
+    }
+    
     
     override func viewWillAppear(_ animated: Bool) {
       super.viewWillAppear(animated)

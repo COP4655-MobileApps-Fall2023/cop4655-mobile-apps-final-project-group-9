@@ -13,7 +13,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     
-
     @IBOutlet weak var accountPromptLabel: UILabel!
     
     // Add a property for the password visibility button
