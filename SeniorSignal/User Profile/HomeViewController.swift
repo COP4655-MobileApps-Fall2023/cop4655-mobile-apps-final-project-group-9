@@ -42,6 +42,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         addButton.selectedImage = addButton.image?.withRenderingMode(.alwaysOriginal)
         addButton.image = addButton.image?.withRenderingMode(.alwaysOriginal)
       }
+        
+        setupDynamicConstraints()
+        setupToolbar()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -208,6 +211,85 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         detailVC.elderlyProfile = elderlyProfiles[indexPath.row]
       }
     }
+    
+    func setupDynamicConstraints() {
+        // Disable autoresizing mask translation for views you will constraint programmatically
+        caregiverProfilePic.translatesAutoresizingMaskIntoConstraints = false
+        caregiverName.translatesAutoresizingMaskIntoConstraints = false
+        caregiverRole.translatesAutoresizingMaskIntoConstraints = false
+        addNewElderButton.translatesAutoresizingMaskIntoConstraints = false
 
-  }
+        // Profile Picture Constraints
+        NSLayoutConstraint.activate([
+            caregiverProfilePic.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
+            caregiverProfilePic.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            caregiverProfilePic.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.20), // 15% of parent width
+            caregiverProfilePic.heightAnchor.constraint(equalTo: caregiverProfilePic.widthAnchor) // Keep aspect ratio 1:1
+        ])
+
+        // Caregiver Name Constraints
+        NSLayoutConstraint.activate([
+            caregiverName.leadingAnchor.constraint(equalTo: caregiverProfilePic.trailingAnchor, constant: 62),
+            caregiverName.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 35),
+            caregiverName.trailingAnchor.constraint(lessThanOrEqualTo: addNewElderButton.leadingAnchor, constant: -12)
+        ])
+
+        // Caregiver Role Constraints
+        NSLayoutConstraint.activate([
+            caregiverRole.leadingAnchor.constraint(equalTo: caregiverName.leadingAnchor),
+            caregiverRole.topAnchor.constraint(equalTo: caregiverName.bottomAnchor, constant: 4),
+            caregiverRole.trailingAnchor.constraint(equalTo: caregiverName.trailingAnchor)
+        ])
+
+        // Add New Elder Button Constraints
+        NSLayoutConstraint.activate([
+            addNewElderButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
+            addNewElderButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 100),
+            addNewElderButton.widthAnchor.constraint(equalToConstant: 44), // Size as appropriate
+            addNewElderButton.heightAnchor.constraint(equalTo: addNewElderButton.widthAnchor)
+        ])
+    }
+    
+    func setupToolbar() {
+        // Create flexible space to use between toolbar buttons
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+
+        // Check if the outlets are connected and if not, create new instances
+        let homeButton = homeToolBarButton ?? UIBarButtonItem()
+        let calendarButton = calendarToolBarButton ?? UIBarButtonItem()
+        let notificationButton = notificationToolBarButton ?? UIBarButtonItem()
+        let settingsButton = settingsToolBarButton ?? UIBarButtonItem()
+
+        // Set the toolbar items with flexible space between them
+        self.toolbarItems = [
+            flexibleSpace, // This will push the home button to the left
+            homeButton,
+            flexibleSpace, // This will space out the buttons evenly
+            calendarButton,
+            flexibleSpace, // Repeat this pattern for each button
+            notificationButton,
+            flexibleSpace,
+            settingsButton,
+            flexibleSpace // This will push the settings button to the right
+        ]
+
+        // Make sure the toolbar is visible
+        navigationController?.setToolbarHidden(false, animated: false)
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        coordinator.animate(alongsideTransition: { _ in
+            // This is where you can make further adjustments if necessary when the orientation changes.
+        }, completion: { _ in
+            // This block will be executed after the rotation is complete
+        })
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        // This method is called whenever the view controller's view's layout is updated.
+        // You can make any adjustments to your constraints here, if needed.
+    }
+}
 

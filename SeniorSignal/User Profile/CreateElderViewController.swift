@@ -22,6 +22,51 @@ class CreateElderViewController: UIViewController, UIImagePickerControllerDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         elderSave.tintColor = UIColor(red: 255 / 255, green: 160 / 255, blue: 122 / 255, alpha: 1.0)
+        setupTextFields()
+        
+        elderName.borderStyle = .roundedRect
+        elderAge.borderStyle = .roundedRect
+        elderPhone.borderStyle = .roundedRect
+        ecName.borderStyle = .roundedRect
+        ecPhone.borderStyle = .roundedRect
+        ecRelationship.borderStyle = .roundedRect
+
+        // Or if you want a custom border
+        elderName.layer.borderColor = UIColor.darkGray.cgColor
+        elderName.layer.borderWidth = 1.0
+        elderName.layer.cornerRadius = 5.0
+
+        elderAge.layer.borderColor = UIColor.darkGray.cgColor
+        elderAge.layer.borderWidth = 1.0
+        elderAge.layer.cornerRadius = 5.0
+        
+        elderPhone.layer.borderColor = UIColor.darkGray.cgColor
+        elderPhone.layer.borderWidth = 1.0
+        elderPhone.layer.cornerRadius = 5.0
+        
+        ecName.layer.borderColor = UIColor.darkGray.cgColor
+        ecName.layer.borderWidth = 1.0
+        ecName.layer.cornerRadius = 5.0
+        
+        ecPhone.layer.borderColor = UIColor.darkGray.cgColor
+        ecPhone.layer.borderWidth = 1.0
+        ecPhone.layer.cornerRadius = 5.0
+        
+        ecRelationship.layer.borderColor = UIColor.darkGray.cgColor
+        ecRelationship.layer.borderWidth = 1.0
+        ecRelationship.layer.cornerRadius = 5.0
+        
+    }
+    
+    private func setupTextFields() {
+        // Set dark text for placeholders
+        elderName.attributedPlaceholder = NSAttributedString(string: "Full Name", attributes: [NSAttributedString.Key.foregroundColor: UIColor.darkGray])
+        elderAge.attributedPlaceholder = NSAttributedString(string: "Age", attributes: [NSAttributedString.Key.foregroundColor: UIColor.darkGray])
+        elderPhone.attributedPlaceholder = NSAttributedString(string: "Phone number", attributes: [NSAttributedString.Key.foregroundColor: UIColor.darkGray])
+        ecName.attributedPlaceholder = NSAttributedString(string: "Emergency Contact Name", attributes: [NSAttributedString.Key.foregroundColor: UIColor.darkGray])
+        ecPhone.attributedPlaceholder = NSAttributedString(string: "Emergency Contact Phone", attributes: [NSAttributedString.Key.foregroundColor: UIColor.darkGray])
+        ecRelationship.attributedPlaceholder = NSAttributedString(string: "Contact Relationship", attributes: [NSAttributedString.Key.foregroundColor: UIColor.darkGray])
+        
     }
     
     @IBAction func elderPicUploadTapped(_ sender: UIButton) {
